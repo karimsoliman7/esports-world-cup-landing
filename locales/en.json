@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Esports World Cup on Thamanya",
+    "description": "Enjoy the coverage and watch the Esports World Cup live for free on the Thamanya app — recaps, companion shows, and Arabic coverage made for the community."
+  },
+  "nav": {
+    "players": "Players",
+    "tournaments": "Tournaments",
+    "programs": "Shows",
+    "why": "Why Thamanya",
+    "faq": "FAQ",
+    "download": "Download the App",
+    "switchLabel": "العربية",
+    "brand": "thmanyah"
+  },
+  "hero": {
+    "kicker": "July 7 – August 22, 2026 · Riyadh",
+    "title": "Esports World Cup on Thamanya",
+    "subtitle": "Enjoy the coverage and watch live for free on the Thamanya app",
+    "cta": "Download the App",
+    "scroll": "Scroll to explore"
+  },
+  "countdown": {
+    "label": "The action starts in",
+    "live": "We're live right now",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "players": {
+    "title": "Featuring the World's Elite Players",
+    "subtitle": "The best in the world, all competing in one arena",
+    "prev": "Previous players",
+    "next": "Next players",
+    "pill": "Tournament stars"
+  },
+  "band": {
+    "title": "Watch the tournament live, for free",
+    "subtitle": "Every match, streaming on the Thamanya app",
+    "cta": "Download the App",
+    "ticker": "LIVE ON THAMANYA",
+    "kicker": "July 7 – August 22, 2026 · Riyadh"
+  },
+  "tournaments": {
+    "title": "Tournaments Available on the Thamanya App",
+    "subtitle": "11 tournaments across the summer — all live, all free",
+    "status": {
+      "upcoming": "Upcoming",
+      "live": "Live",
+      "finished": "Finished"
+    },
+    "pill": "Full schedule"
+  },
+  "programs": {
+    "title": "More Than Live Matches",
+    "subtitle": "Thamanya's coverage goes beyond the competition with shows, behind-the-scenes content, recaps, and discussions straight from the event",
+    "items": [
+      {
+        "tag": "Podcast",
+        "title": "Casuals Podcast",
+        "desc": "Special episodes recorded from the tournament venue featuring guests from the gaming and esports community",
+        "meta": "From the venue · New episodes weekly",
+        "link": "Listen to the episodes"
+      },
+      {
+        "tag": "Newsletter",
+        "title": "Gaming Newsletter",
+        "desc": "Coverage of the biggest news, results, and standout moments worth following",
+        "meta": "In your inbox · Throughout the tournament",
+        "link": "Read the newsletter"
+      }
+    ],
+    "pill": "From the venue"
+  },
+  "why": {
+    "title": "Why Thamanya?",
+    "subtitle": "We don't just broadcast the tournament — we explain it, recap it, and make it easier to keep up, even if you're new to gaming",
+    "items": [
+      {
+        "title": "Free live streaming",
+        "desc": "Every match, no subscription needed"
+      },
+      {
+        "title": "Match recaps and highlights",
+        "desc": "Missed a match? We've got you covered"
+      },
+      {
+        "title": "On-site companion programs",
+        "desc": "Behind the scenes and talk shows from the heart of the event"
+      },
+      {
+        "title": "Arabic coverage made for the community",
+        "desc": "In your language, in a style you'll get"
+      }
+    ],
+    "pill": "The highlights"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "Is the streaming really free?",
+        "a": "Yes — every Esports World Cup tournament streams for free on the Thamanya app, no subscription required."
+      },
+      {
+        "q": "How do I watch?",
+        "a": "Download the Thamanya app from the App Store or Google Play, then open the live section to catch the broadcast."
+      },
+      {
+        "q": "Which tournaments are covered?",
+        "a": "11 tournaments from July 7 to August 22, 2026 — including Dota 2, FC 26, Fortnite, PUBG Mobile, Rocket League, Chess, and more."
+      },
+      {
+        "q": "Is the coverage in Arabic?",
+        "a": "Yes — Arabic commentary plus companion shows, recaps, and discussions made for the community."
+      },
+      {
+        "q": "I missed a match — can I catch up?",
+        "a": "Absolutely. Recaps and highlights are available on the app right after every match."
+      }
+    ],
+    "pill": "Got questions?"
+  },
+  "footer": {
+    "closingTitle": "Watch Live on the Thamanya App",
+    "cta": "Download the App",
+    "appStore": "Download on the",
+    "appStoreName": "App Store",
+    "googlePlay": "Get it on",
+    "googlePlayName": "Google Play",
+    "rights": "© 2026 Thmanyah. All rights reserved.",
+    "social": "Follow us"
+  }
+}
