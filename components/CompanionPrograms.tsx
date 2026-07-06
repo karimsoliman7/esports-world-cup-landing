@@ -1,5 +1,4 @@
 import type { Dict, Locale } from "@/lib/i18n";
-import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 
 // visual identity per card: [pill classes, thumbnail gradient, icon]
@@ -20,6 +19,8 @@ const cardStyles = [
   },
 ];
 
+// split layout per the Figma design (node 10-390): black section, purple
+// rounded panel — headline + subtitle on the start side, cards opposite
 export default function CompanionPrograms({
   locale,
   dict,
@@ -28,53 +29,67 @@ export default function CompanionPrograms({
   dict: Dict["programs"];
 }) {
   return (
-    <section id="programs" className="relative bg-purple py-24 md:py-32">
+    <section id="programs" className="relative bg-ink py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <SectionHeading
-          title={dict.title}
-          subtitle={dict.subtitle}
-          pill={dict.pill}
-          tone="purple"
-        />
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {dict.items.map((item, i) => {
-            const s = cardStyles[i % cardStyles.length];
-            return (
-              <Reveal key={item.title} delay={i * 0.1}>
-                <article
-                  className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-ink text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
+        <Reveal>
+          <div className="flex flex-col gap-10 rounded-[40px] bg-purple p-6 md:rounded-[64px] md:p-10 lg:flex-row lg:items-center lg:gap-16">
+            <div className="flex flex-1 flex-col items-start justify-center gap-6 p-2 text-start md:p-6">
+              <div className="flex flex-wrap items-center gap-5">
+                <h2 className="type-title text-balance text-white">
+                  {dict.title}
+                </h2>
+                <span
+                  aria-hidden
+                  className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-black/5 bg-white text-2xl md:size-12"
+                  style={{ transform: "rotate(-15deg)" }}
                 >
-                  {/* thumbnail area — swap for real artwork when available */}
-                  <div
-                    className={`relative flex h-52 items-center justify-center bg-gradient-to-br ${s.thumb} md:h-64`}
-                  >
-                    <span className="text-white/80 transition-transform duration-500 group-hover:scale-110 [&>svg]:size-16 md:[&>svg]:size-20">
-                      {s.icon}
-                    </span>
-                    <span
-                      className={`absolute start-6 top-6 rounded-full px-3.5 py-1.5 text-xs font-bold ${s.pill}`}
-                    >
-                      {item.tag}
-                    </span>
-                  </div>
+                  🔴
+                </span>
+              </div>
+              <p className="type-lead feat-ss01 text-pretty text-white">
+                {dict.subtitle}
+              </p>
+            </div>
 
-                  <div className="flex grow flex-col p-8">
-                    <p className="type-meta mb-3 text-white/40">{item.meta}</p>
-                    <h3 className="type-card-title">{item.title}</h3>
-                    <p className="mt-3 grow text-pretty leading-relaxed text-white/55">
-                      {item.desc}
-                    </p>
-                    <p className="mt-6 flex items-center gap-3 text-sm font-bold">
-                      <span className={`h-0.5 w-8 rounded ${s.dash}`} />
-                      {item.link}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
+            <div className="grid flex-1 gap-6 sm:grid-cols-2">
+              {dict.items.map((item, i) => {
+                const s = cardStyles[i % cardStyles.length];
+                return (
+                  <article
+                    key={item.title}
+                    className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-ink text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
+                  >
+                    {/* thumbnail area — swap for real artwork when available */}
+                    <div
+                      className={`relative flex h-52 items-center justify-center bg-gradient-to-br ${s.thumb} md:h-56`}
+                    >
+                      <span className="text-white/80 transition-transform duration-500 group-hover:scale-110 [&>svg]:size-16 md:[&>svg]:size-20">
+                        {s.icon}
+                      </span>
+                      <span
+                        className={`absolute start-6 top-6 rounded-full px-3.5 py-1.5 text-xs font-bold ${s.pill}`}
+                      >
+                        {item.tag}
+                      </span>
+                    </div>
+
+                    <div className="flex grow flex-col p-6 md:p-8">
+                      <p className="type-meta mb-3 text-white/40">{item.meta}</p>
+                      <h3 className="type-card-title">{item.title}</h3>
+                      <p className="mt-3 grow text-pretty leading-relaxed text-white/55">
+                        {item.desc}
+                      </p>
+                      <p className="mt-6 flex items-center gap-3 text-sm font-bold">
+                        <span className={`h-0.5 w-8 rounded ${s.dash}`} />
+                        {item.link}
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
