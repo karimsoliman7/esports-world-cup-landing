@@ -80,7 +80,7 @@ export default function Navbar({
         <div className="flex items-center gap-2">
           <Link
             href={`/${other}`}
-            className="rounded-full border border-black/15 px-4 py-2 text-sm font-medium text-ink/70 transition-colors hover:border-black/40 hover:text-ink"
+            className="rounded-full px-4 py-2 text-sm font-medium text-ink/70 transition-colors hover:bg-black/5 hover:text-ink"
           >
             {dict.switchLabel}
           </Link>
