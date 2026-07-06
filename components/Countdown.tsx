@@ -55,9 +55,7 @@ export default function Countdown({
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <p className="text-sm font-medium uppercase tracking-widest text-white/50">
-        {dict.label}
-      </p>
+      <p className="type-meta text-white/50">{dict.label}</p>
       <div className="flex items-start gap-1.5 md:gap-6" dir="ltr">
         {units.map(({ key, value }, i) => (
           <div key={key} className="flex items-start gap-1.5 md:gap-6">
@@ -73,9 +71,7 @@ export default function Countdown({
               >
                 {value === undefined ? "--" : nf.format(value)}
               </span>
-              <span className="mt-1 text-xs font-medium text-white/50 md:text-sm">
-                {dict[key]}
-              </span>
+              <span className="type-meta mt-1 text-white/50">{dict[key]}</span>
             </div>
           </div>
         ))}

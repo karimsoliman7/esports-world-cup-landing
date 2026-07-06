@@ -32,7 +32,7 @@ export default function TournamentCards({
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <div className="relative mb-11 flex items-center justify-center rounded-[40px] bg-white px-6 py-12 md:min-h-[265px] md:rounded-[64px] md:px-16">
-            <h2 className="feat-ss01 max-w-[681px] text-balance text-center text-4xl font-black leading-tight text-ink md:text-6xl lg:text-[76px]">
+            <h2 className="type-title max-w-[681px] text-balance text-center text-ink">
               {dict.title}
             </h2>
             <span
@@ -57,9 +57,7 @@ export default function TournamentCards({
                   }`}
                 >
                   <div className="flex w-full items-center justify-between gap-3">
-                    <h3 className="feat-ss01 text-[22px] font-black uppercase leading-tight">
-                      {t[locale]}
-                    </h3>
+                    <h3 className="type-card-title">{t[locale]}</h3>
                     <img
                       src={t.logo}
                       alt=""

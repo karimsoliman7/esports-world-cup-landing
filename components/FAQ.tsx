@@ -21,10 +21,8 @@ export default function FAQ({
     <section id="faq" className="bg-[#f8f8f7] py-24 md:py-36">
       <div className="mx-auto max-w-3xl px-5 md:px-8">
         <Reveal className="mb-14 flex flex-col items-center gap-5 text-center md:mb-20">
-          <p className="text-lg text-ink/80 md:text-xl">{dict.label}</p>
-          <h2 className="feat-ss01 text-balance text-4xl font-black leading-tight text-ink md:text-6xl lg:text-[76px]">
-            {dict.title}
-          </h2>
+          <p className="type-lead text-ink/80">{dict.label}</p>
+          <h2 className="type-title text-balance text-ink">{dict.title}</h2>
         </Reveal>
 
         <div className="mx-auto flex w-full max-w-[560px] flex-col gap-11">

@@ -51,7 +51,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="feat-ss01 mt-6 max-w-2xl text-pretty text-lg text-ink md:text-2xl"
+          className="type-lead feat-ss01 mt-6 max-w-2xl text-pretty text-ink"
         >
           {dict.subtitle}
         </motion.p>
@@ -85,7 +85,7 @@ export default function Hero({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 text-sm font-medium text-ink/40"
+          className="type-meta mt-8 text-ink/40"
         >
           {dict.kicker}
         </motion.p>

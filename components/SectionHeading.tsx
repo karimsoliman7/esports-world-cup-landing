@@ -33,15 +33,9 @@ export default function SectionHeading({
           {pill}
         </span>
       )}
-      <h2
-        className={`feat-salt text-balance text-4xl font-black leading-tight md:text-6xl ${s.title}`}
-      >
-        {title}
-      </h2>
+      <h2 className={`type-title text-balance ${s.title}`}>{title}</h2>
       {subtitle && (
-        <p
-          className={`mx-auto mt-5 max-w-2xl text-pretty text-lg leading-relaxed md:text-xl ${s.subtitle}`}
-        >
+        <p className={`type-lead mx-auto mt-5 max-w-2xl text-pretty ${s.subtitle}`}>
           {subtitle}
         </p>
       )}

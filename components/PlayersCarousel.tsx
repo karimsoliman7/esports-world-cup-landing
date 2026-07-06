@@ -67,15 +67,13 @@ export default function PlayersCarousel({
 
                 <div className="relative flex h-full flex-col justify-between p-6">
                   <p
-                    className="text-2xl font-black uppercase leading-[1.1] tracking-tight md:text-3xl"
+                    className="text-2xl font-black uppercase leading-[1.1] tracking-tight"
                     style={{ color: p.accent }}
                   >
                     {p.tag[locale]}
                   </p>
                   <div>
-                    <h3 className="text-2xl font-bold md:text-3xl">
-                      {p.name[locale]}
-                    </h3>
+                    <h3 className="type-card-title">{p.name[locale]}</h3>
                     <p className="mt-2 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/70 backdrop-blur">
                       {p.game[locale]}
                     </p>

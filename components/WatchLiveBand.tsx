@@ -49,11 +49,9 @@ export default function WatchLiveBand({
           />
         </span>
 
-        <h2 className="feat-salt text-balance text-4xl font-black leading-tight md:text-6xl">
-          {dict.title}
-        </h2>
-        <p className="mt-4 text-lg text-white/60 md:text-xl">{dict.subtitle}</p>
-        <p className="mt-2 text-sm font-medium text-white/35">{dict.kicker}</p>
+        <h2 className="type-title text-balance">{dict.title}</h2>
+        <p className="type-lead mt-4 text-white/60">{dict.subtitle}</p>
+        <p className="type-meta mt-2 text-white/35">{dict.kicker}</p>
 
         <div className="mt-12">
           <Countdown locale={locale} dict={countdown} />

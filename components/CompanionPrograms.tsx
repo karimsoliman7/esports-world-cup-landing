@@ -60,12 +60,8 @@ export default function CompanionPrograms({
                   </div>
 
                   <div className="flex grow flex-col p-8">
-                    <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
-                      {item.meta}
-                    </p>
-                    <h3 className="text-2xl font-black md:text-3xl">
-                      {item.title}
-                    </h3>
+                    <p className="type-meta mb-3 text-white/40">{item.meta}</p>
+                    <h3 className="type-card-title">{item.title}</h3>
                     <p className="mt-3 grow text-pretty leading-relaxed text-white/55">
                       {item.desc}
                     </p>

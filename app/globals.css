@@ -31,6 +31,37 @@ body {
   font-feature-settings: "ss01" 1;
 }
 
+/* unified type scale — one style per role across the whole page */
+.type-title {
+  font-weight: 900;
+  font-feature-settings: "ss01" 1;
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+.type-lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.type-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.type-meta {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .type-title {
+    font-size: 3.75rem;
+    line-height: 1.15;
+  }
+  .type-lead {
+    font-size: 1.25rem;
+  }
+}
+
 /* gentle bob for the emoji sticker pills */
 @keyframes bob {
   0%, 100% { transform: translateY(0); }

@@ -36,9 +36,7 @@ export default function WhyThamanya({
                   {icons[i % 4]}
                 </span>
                 <div>
-                  <h3 className="text-xl font-bold text-ink md:text-2xl">
-                    {item.title}
-                  </h3>
+                  <h3 className="type-card-title text-ink">{item.title}</h3>
                   <p className="mt-2 leading-relaxed text-ink/55">{item.desc}</p>
                 </div>
               </div>
