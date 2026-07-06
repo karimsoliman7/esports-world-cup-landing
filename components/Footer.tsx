@@ -33,31 +33,43 @@ export default function Footer({
         </div>
       </Reveal>
 
-      {/* footer bar */}
+      {/* footer bar, per the thmanyah.com footer */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 py-10 md:flex-row md:px-8">
-          <p className="flex items-center gap-2.5 text-2xl font-black">
-            <img src="/figma/logo-white.svg" alt="" className="size-7" />
-            {locale === "ar" ? "ثمانية" : "thmanyah"}
-            <span className="-ms-2 text-orange">.</span>
-          </p>
-
-          <div className="flex items-center gap-2" aria-label={dict.social}>
-            <SocialLink href="https://x.com/thmanyah" label="X">
-              <XIcon />
-            </SocialLink>
-            <SocialLink href="https://instagram.com/thmanyah" label="Instagram">
-              <InstagramIcon />
-            </SocialLink>
-            <SocialLink href="https://youtube.com/@thmanyah" label="YouTube">
-              <YouTubeIcon />
-            </SocialLink>
-            <SocialLink href="https://tiktok.com/@thmanyah" label="TikTok">
-              <TikTokIcon />
-            </SocialLink>
+        <div className="mx-auto max-w-7xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
+          <div className="flex flex-col items-center gap-10 md:flex-row md:items-center md:justify-between">
+            <p className="text-4xl font-black leading-none md:text-5xl">
+              {locale === "ar" ? "ثمانيـــة" : "thmanyah"}
+            </p>
+            <div className="flex items-center gap-6" aria-label={dict.social}>
+              <SocialLink href="https://youtube.com/@thmanyah" label="YouTube">
+                <YouTubeIcon />
+              </SocialLink>
+              <SocialLink href="https://x.com/thmanyah" label="X">
+                <XIcon />
+              </SocialLink>
+              <SocialLink href="https://instagram.com/thmanyah" label="Instagram">
+                <InstagramIcon />
+              </SocialLink>
+              <SocialLink href="https://tiktok.com/@thmanyah" label="TikTok">
+                <TikTokIcon />
+              </SocialLink>
+              <SocialLink href="https://facebook.com/thmanyah" label="Facebook">
+                <FacebookIcon />
+              </SocialLink>
+            </div>
           </div>
 
-          <p className="text-sm text-white/40">{dict.rights}</p>
+          <div className="my-10 border-t border-white/10 md:my-14" />
+
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-white/40">
+            <p>{dict.rights}</p>
+            <a href="#" className="transition-colors hover:text-white">
+              {dict.privacy}
+            </a>
+            <a href="#" className="transition-colors hover:text-white">
+              {dict.contact}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -104,10 +116,18 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex size-11 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-white/40 hover:text-white [&>svg]:size-5"
+      className="text-white/60 transition-colors hover:text-white [&>svg]:size-5"
     >
       {children}
     </a>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.8-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.96H15.8c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12z" />
+    </svg>
   );
 }
 

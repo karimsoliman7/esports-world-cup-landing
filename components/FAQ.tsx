@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import type { Dict, Locale } from "@/lib/i18n";
-import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 
+// chat-style FAQ, per the Figma design (node 23-60): the visitor "asks"
+// from the right, Thamanya replies from the left with a typing indicator
 export default function FAQ({
   locale,
   dict,
@@ -13,61 +14,173 @@ export default function FAQ({
   locale: Locale;
   dict: Dict["faq"];
 }) {
-  const [open, setOpen] = useState<number | null>(0);
+  // strict conversation order: item i plays only after item i-1 finished
+  const [unlocked, setUnlocked] = useState(0);
 
   return (
-    <section id="faq" className="bg-white py-24 md:py-36">
+    <section id="faq" className="bg-[#f8f8f7] py-24 md:py-36">
       <div className="mx-auto max-w-3xl px-5 md:px-8">
-        <SectionHeading title={dict.title} pill={dict.pill} />
-
-        <Reveal>
-          <div className="divide-y divide-black/10 rounded-3xl border border-black/10 bg-black/[0.02]">
-            {dict.items.map((item, i) => {
-              const isOpen = open === i;
-              return (
-                <div key={i}>
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-panel-${i}`}
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 px-7 py-6 text-start transition-colors hover:bg-black/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple md:px-9"
-                  >
-                    <span className="text-lg font-bold text-ink md:text-xl">
-                      {item.q}
-                    </span>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xl font-light ${
-                        isOpen ? "bg-purple text-white" : "bg-black/5 text-ink/70"
-                      }`}
-                    >
-                      +
-                    </motion.span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`faq-panel-${i}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="overflow-hidden"
-                      >
-                        <p className="px-7 pb-7 leading-relaxed text-ink/60 md:px-9">
-                          {item.a}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
+        <Reveal className="mb-14 flex flex-col items-center gap-5 text-center md:mb-20">
+          <p className="text-lg text-ink/80 md:text-xl">{dict.label}</p>
+          <h2 className="feat-ss01 text-balance text-4xl font-black leading-tight text-ink md:text-6xl lg:text-[76px]">
+            {dict.title}
+          </h2>
         </Reveal>
+
+        <div className="mx-auto flex w-full max-w-[560px] flex-col gap-11">
+          {dict.items.map((item, i) => (
+            <ChatItem
+              key={i}
+              q={item.q}
+              a={item.a}
+              canStart={unlocked >= i}
+              onDone={() => setUnlocked((u) => Math.max(u, i + 1))}
+            />
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+// 0 hidden → 1 question sent → 2 typing → 3 answered
+function ChatItem({
+  q,
+  a,
+  canStart,
+  onDone,
+}: {
+  q: string;
+  a: string;
+  canStart: boolean;
+  onDone: () => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-12% 0px" });
+  const [stage, setStage] = useState(0);
+  const started = useRef(false);
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+
+  useEffect(() => {
+    if (!inView || !canStart || started.current) return;
+    started.current = true;
+    // question → typing → answer, then hand the turn to the next item
+    // once the word-by-word reveal has finished
+    const revealMs = a.split(/\s+/).length * 30 + 400;
+    const timers = [
+      setTimeout(() => setStage(1), 100),
+      setTimeout(() => setStage(2), 750),
+      setTimeout(() => setStage(3), 2000),
+      setTimeout(() => onDoneRef.current(), 2000 + revealMs),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, [inView, canStart, a]);
+
+  return (
+    <div ref={ref} className="flex min-h-[7rem] flex-col gap-4">
+      {/* visitor question — sent from the right */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6, y: 16 }}
+        animate={stage >= 1 ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ type: "spring", stiffness: 320, damping: 22 }}
+        style={{ originX: 1, originY: 1 }}
+        className="feat-ss01 ml-auto w-fit max-w-[85%] rounded-[32px] bg-ink px-6 py-3 text-lg text-white"
+      >
+        <p dir="auto" className="text-start leading-snug">
+          {q}
+        </p>
+      </motion.div>
+
+      {/* thamanya reply — avatar on the left, layout forced LTR so it
+          reads as the same conversation in both locales */}
+      {stage >= 2 && (
+        <div dir="ltr" className="flex items-end gap-1">
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", stiffness: 320, damping: 20 }}
+            className="flex size-8 shrink-0 items-center justify-center rounded-full border border-black/5 bg-black/10"
+          >
+            <img
+              src="/figma/logo-black.svg"
+              alt=""
+              className="size-4 -scale-y-100"
+            />
+          </motion.div>
+          <div className="flex-1">
+            <motion.div
+              layout
+              initial={{ opacity: 0, scale: 0.7, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+              style={{ originX: 0, originY: 1 }}
+              className="feat-ss01 w-fit max-w-full rounded-[32px] bg-black/5 px-6 py-4 text-lg text-ink/80"
+            >
+              {stage === 2 ? <TypingDots /> : <AnswerText a={a} />}
+            </motion.div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// word-by-word reveal; newline-separated answers render as bullet lines
+// and [text](url) segments render as links
+const LINK_SPLIT = /(\[[^\]]+\]\([^)]+\))/;
+const LINK_MATCH = /^\[([^\]]+)\]\(([^)]+)\)$/;
+
+function AnswerText({ a }: { a: string }) {
+  let word = 0;
+  const fade = (delay: number) => ({
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.18, delay },
+  });
+
+  return (
+    <div dir="auto" className="text-start leading-relaxed">
+      {a.split("\n").map((line, li) => (
+        <p key={li} className={li > 0 ? "mt-1.5" : undefined}>
+          {line.split(LINK_SPLIT).map((part, pi) => {
+            const link = part.match(LINK_MATCH);
+            if (link) {
+              return (
+                <motion.a
+                  key={`${li}-${pi}`}
+                  href={link[2]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-purple underline underline-offset-2 hover:text-purple/70"
+                  {...fade(word++ * 0.03)}
+                >
+                  {link[1]}
+                </motion.a>
+              );
+            }
+            return part.split(" ").map((w, wi) => (
+              <motion.span key={`${li}-${pi}-${wi}`} {...fade(word++ * 0.03)}>
+                {w}{" "}
+              </motion.span>
+            ));
+          })}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function TypingDots() {
+  return (
+    <span className="flex items-center gap-1.5 py-1" aria-label="…">
+      {[0, 1, 2].map((d) => (
+        <span
+          key={d}
+          className="typing-dot size-2 rounded-full bg-ink/40"
+          style={{ animationDelay: `${d * 0.18}s` }}
+        />
+      ))}
+    </span>
   );
 }

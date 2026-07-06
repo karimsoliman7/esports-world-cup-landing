@@ -65,15 +65,9 @@ export default function Hero({
         >
           <a
             href="#download"
+            dir="ltr"
             className="flex items-center gap-3 rounded-xl border border-black/5 bg-purple p-1.5 ps-4 shadow-[0_12px_40px_rgba(86,0,204,0.3)] transition-all hover:scale-[1.03] hover:shadow-[0_16px_56px_rgba(86,0,204,0.45)] active:scale-[0.98]"
           >
-            <Image
-              src="/figma/logo-white.svg?v=2"
-              alt=""
-              width={32}
-              height={32}
-              className="size-8 -scale-y-100"
-            />
             <span className="pe-1 text-base font-medium text-white">
               {dict.cta}
             </span>

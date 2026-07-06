@@ -14,7 +14,7 @@
     "brand": "thmanyah"
   },
   "hero": {
-    "kicker": "July 7 – August 22, 2026 · Riyadh",
+    "kicker": "July 6 – August 23, 2026 · Paris",
     "title": "Esports World Cup on Thamanya",
     "subtitle": "Enjoy the coverage and watch live for free on the Thamanya app",
     "cta": "Download the App",
@@ -40,7 +40,7 @@
     "subtitle": "Every match, streaming on the Thamanya app",
     "cta": "Download the App",
     "ticker": "LIVE ON THAMANYA",
-    "kicker": "July 7 – August 22, 2026 · Riyadh"
+    "kicker": "July 6 – August 23, 2026 · Paris"
   },
   "tournaments": {
     "title": "Tournaments Available on the Thamanya App",
@@ -97,30 +97,46 @@
     "pill": "The highlights"
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "label": "FAQ",
+    "title": "Questions you might have",
     "items": [
       {
-        "q": "Is the streaming really free?",
-        "a": "Yes — every Esports World Cup tournament streams for free on the Thamanya app, no subscription required."
+        "q": "What is the Esports World Cup 2026?",
+        "a": "A global tournament bringing together the world's top players and clubs across a range of competitive games. This edition takes place in Paris, France, from July 6 to August 23, 2026."
       },
       {
-        "q": "How do I watch?",
-        "a": "Download the Thamanya app from the App Store or Google Play, then open the live section to catch the broadcast."
+        "q": "Does Thamanya broadcast all of its tournaments?",
+        "a": "No. Thamanya carries a selected lineup of Esports World Cup tournaments, and coverage varies by game. You can find the covered tournaments and their dates in [the tournament schedule](https://docs.google.com/spreadsheets/d/1rv7mR5igsqbZ9wyjOjByJIbdb-zyjq6HIcQ3W8rE49E/edit?gid=883712240#gid=883712240)."
       },
       {
-        "q": "Which tournaments are covered?",
-        "a": "11 tournaments from July 7 to August 22, 2026 — including Dota 2, FC 26, Fortnite, PUBG Mobile, Rocket League, Chess, and more."
+        "q": "Where can I watch the tournaments Thamanya covers?",
+        "a": "On the Thamanya app, with a dedicated space for the tournament inside the app for easy access to the stream, content, and interviews."
       },
       {
-        "q": "Is the coverage in Arabic?",
-        "a": "Yes — Arabic commentary plus companion shows, recaps, and discussions made for the community."
+        "q": "Do I need a subscription to watch?",
+        "a": "No — watching the tournament is available to everyone."
       },
       {
-        "q": "I missed a match — can I catch up?",
-        "a": "Absolutely. Recaps and highlights are available on the app right after every match."
+        "q": "Can I watch outside the Arab world?",
+        "a": "Broadcast rights are geo-restricted to the Arab world only, so the stream can't be watched outside the region."
+      },
+      {
+        "q": "Is it on Thamanya's satellite channels or social media?",
+        "a": "No. The satellite channels are dedicated to Saudi league competitions, and social platforms carry highlights and companion content only."
+      },
+      {
+        "q": "What streaming quality should I expect?",
+        "a": "Matches stream in full HD at 1080p. For the best quality, we recommend a stable connection of at least 12 Mbps."
+      },
+      {
+        "q": "Can I watch matches after the live broadcast ends?",
+        "a": "Yes — match replays are published after the live stream ends."
+      },
+      {
+        "q": "What companion content comes with the tournament?",
+        "a": "- Gaming Newsletter: short daily content edited from broadcast footage covering the standout moments, plus a recap after each tournament ends.\n- Casuals Podcast: special episodes with players and guests from the gaming and esports world, filmed at the tournament venue and released between tournament days.\n- Live interviews and content from the event grounds in Paris.\n- Daily coverage across social media platforms."
       }
-    ],
-    "pill": "Got questions?"
+    ]
   },
   "footer": {
     "closingTitle": "Watch Live on the Thamanya App",
@@ -129,7 +145,9 @@
     "appStoreName": "App Store",
     "googlePlay": "Get it on",
     "googlePlayName": "Google Play",
-    "rights": "© 2026 Thmanyah. All rights reserved.",
-    "social": "Follow us"
+    "rights": "© 2026 Thmanyah for Publishing and Distribution — All rights reserved.",
+    "social": "Follow us",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us"
   }
 }

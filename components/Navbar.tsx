@@ -50,18 +50,14 @@ export default function Navbar({
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 md:h-20 md:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="#top" className="shrink-0">
           <Image
-            src="/figma/logo-black.svg"
-            alt=""
-            width={28}
-            height={28}
-            className="size-7"
+            src="/figma/mark-black.svg"
+            alt={dict.brand}
+            width={31}
+            height={36}
+            className="h-9 w-auto"
           />
-          <span className="text-2xl font-black tracking-tight text-ink">
-            {dict.brand}
-            <span className="text-orange">.</span>
-          </span>
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">
