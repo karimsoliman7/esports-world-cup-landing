@@ -65,10 +65,18 @@ export default function Footer({
 
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-white/40">
             <p>{dict.rights}</p>
-            <a href="#" className="transition-colors hover:text-white">
+            <a
+              href="https://company.thmanyah.com/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
               {dict.privacy}
             </a>
-            <a href="#" className="transition-colors hover:text-white">
+            <a
+              href="mailto:hala@thmanyah.com"
+              className="transition-colors hover:text-white"
+            >
               {dict.contact}
             </a>
           </div>
