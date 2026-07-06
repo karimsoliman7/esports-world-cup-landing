@@ -70,7 +70,7 @@ export default function PlayersCarousel({
                     className="text-2xl font-black uppercase leading-[1.1] tracking-tight"
                     style={{ color: p.accent }}
                   >
-                    {p.tag[locale]}
+                    {p.team[locale]}
                   </p>
                   <div>
                     <h3 className="type-card-title">{p.name[locale]}</h3>

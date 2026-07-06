@@ -1,76 +1,96 @@
 export interface Player {
   id: string;
   name: { en: string; ar: string };
-  tag: { en: string; ar: string }; // condensed poster headline, e.g. "THE DARK HORSE"
+  team: { en: string; ar: string }; // poster headline, in the team color
   game: { en: string; ar: string };
-  // poster gradient + jersey accent, per the esports-poster reference
+  // poster gradient + team accent color
   gradient: string;
   accent: string;
 }
 
+// team palettes
+const FALCONS = { gradient: "from-[#0f6b4f] via-[#221f21] to-[#141214]", accent: "#2ecf8e" };
+const TWISTED = { gradient: "from-[#5b2a8f] via-[#221f21] to-[#141214]", accent: "#a06bff" };
+
 export const players: Player[] = [
   {
-    id: "carlsen",
-    name: { en: "Magnus Carlsen", ar: "ماغنوس كارلسن" },
-    tag: { en: "THE GRANDMASTER", ar: "الجراند ماستر" },
-    game: { en: "Chess", ar: "شطرنج" },
-    gradient: "from-[#3b2a8f] via-[#221f21] to-[#141214]",
-    accent: "#6042E6",
-  },
-  {
     id: "imperialhal",
-    name: { en: "ImperialHal", ar: "إمبيريال هال" },
-    tag: { en: "THE APEX PREDATOR", ar: "المفترس" },
-    game: { en: "Apex Legends", ar: "إيبكس ليجند" },
-    gradient: "from-[#8f2a1e] via-[#221f21] to-[#141214]",
-    accent: "#E4552E",
+    name: { en: "ImperialHal", ar: "إمبريال" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "Apex Legends", ar: "إيبكس ليجندز" },
+    ...FALCONS,
   },
   {
-    id: "miracle",
-    name: { en: "Miracle-", ar: "ميراكل" },
-    tag: { en: "THE MIRACLE MAN", ar: "صانع المعجزات" },
-    game: { en: "Dota 2", ar: "دوتا 2" },
-    gradient: "from-[#1e3a8f] via-[#221f21] to-[#141214]",
-    accent: "#4f7cff",
+    id: "faker",
+    name: { en: "Faker", ar: "فيكر" },
+    team: { en: "T1", ar: "تي وان" },
+    game: { en: "League of Legends", ar: "ليق أوف ليجندز" },
+    gradient: "from-[#8f1e2e] via-[#221f21] to-[#141214]",
+    accent: "#ff4157",
   },
   {
-    id: "vejrgang",
-    name: { en: "Anders Vejrgang", ar: "أندرس فايرغانغ" },
-    tag: { en: "THE PRODIGY", ar: "الظاهرة" },
-    game: { en: "FC 26", ar: "FC 26" },
-    gradient: "from-[#0f6b4f] via-[#221f21] to-[#141214]",
-    accent: "#2ecf8e",
-  },
-  {
-    id: "peterbot",
-    name: { en: "Peterbot", ar: "بيتربوت" },
-    tag: { en: "THE CHAMPION", ar: "البطل" },
-    game: { en: "Fortnite", ar: "فورتنايت" },
-    gradient: "from-[#6b3ab0] via-[#221f21] to-[#141214]",
-    accent: "#a06bff",
-  },
-  {
-    id: "zen",
-    name: { en: "Zen", ar: "زين" },
-    tag: { en: "THE PHENOM", ar: "الموهبة" },
-    game: { en: "Rocket League", ar: "روكيت ليق" },
+    id: "abumakkah",
+    name: { en: "AbuMakkah", ar: "أبو مكة" },
+    team: { en: "Al Qadsiah", ar: "القادسية" },
+    game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
     gradient: "from-[#8f6b1e] via-[#221f21] to-[#141214]",
     accent: "#f0b429",
   },
   {
-    id: "proper",
-    name: { en: "Proper", ar: "بروبر" },
-    tag: { en: "THE ACE", ar: "الآس" },
-    game: { en: "Overwatch", ar: "أوفرواتش" },
-    gradient: "from-[#8f1e50] via-[#221f21] to-[#141214]",
-    accent: "#ff4f8e",
+    id: "msdossary",
+    name: { en: "Msdossary", ar: "مساعد الدوسري" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    ...FALCONS,
   },
   {
-    id: "paraboy",
-    name: { en: "Paraboy", ar: "بارابوي" },
-    tag: { en: "THE SHARPSHOOTER", ar: "القنّاص" },
-    game: { en: "PUBG Mobile", ar: "ببجي موبايل" },
-    gradient: "from-[#b05a1e] via-[#221f21] to-[#141214]",
-    accent: "#E4552E",
+    id: "vejrgang",
+    name: { en: "Vejrgang", ar: "فيرقانق" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    ...FALCONS,
+  },
+  {
+    id: "quartz",
+    name: { en: "Quartz", ar: "كوارتز" },
+    team: { en: "Twisted Minds", ar: "تويستد مايندز" },
+    game: { en: "Overwatch", ar: "أوفرواتش" },
+    ...TWISTED,
+  },
+  {
+    id: "soka",
+    name: { en: "Soka", ar: "سوكا" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "Call of Duty", ar: "كول أوف دوتي" },
+    ...FALCONS,
+  },
+  {
+    id: "magnus",
+    name: { en: "Magnus", ar: "ماقنوس" },
+    team: { en: "Team Liquid", ar: "ليكويد" },
+    game: { en: "Chess", ar: "الشطرنج" },
+    gradient: "from-[#1e3a8f] via-[#221f21] to-[#141214]",
+    accent: "#4f7cff",
+  },
+  {
+    id: "nwpo",
+    name: { en: "Nwpo", ar: "نوبو" },
+    team: { en: "Twisted Minds", ar: "تويستد مايندز" },
+    game: { en: "Rocket League", ar: "روكيت ليق" },
+    ...TWISTED,
+  },
+  {
+    id: "niko",
+    name: { en: "NiKo", ar: "نيكو" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "Counter-Strike 2", ar: "كاونتر سترايك 2" },
+    ...FALCONS,
+  },
+  {
+    id: "peterbot",
+    name: { en: "Peterbot", ar: "بيتربوت" },
+    team: { en: "Team Falcons", ar: "فالكونز" },
+    game: { en: "Fortnite", ar: "فورتنايت" },
+    ...FALCONS,
   },
 ];
