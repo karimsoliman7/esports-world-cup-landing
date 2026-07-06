@@ -54,9 +54,14 @@ export default function CompanionPrograms({
             <div className="grid flex-1 grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-6">
               {dict.items.map((item, i) => {
                 const s = cardStyles[i % cardStyles.length];
+                // whole card links out when the program has a URL
+                const Card: "a" | "article" = item.url ? "a" : "article";
                 return (
-                  <article
+                  <Card
                     key={item.title}
+                    {...(item.url
+                      ? { href: item.url, target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-ink text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
                   >
                     {/* thumbnail area — swap for real artwork when available */}
@@ -84,7 +89,7 @@ export default function CompanionPrograms({
                         {item.link}
                       </p>
                     </div>
-                  </article>
+                  </Card>
                 );
               })}
             </div>

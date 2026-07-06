@@ -61,14 +61,16 @@
         "title": "Casuals Podcast",
         "desc": "Special episodes recorded from the tournament venue featuring guests from the gaming and esports community",
         "meta": "From the venue · New episodes weekly",
-        "link": "Listen to the episodes"
+        "link": "Listen to the episodes",
+        "url": "https://app.thmanyah.com/show/5297109850292224"
       },
       {
         "tag": "Newsletter",
         "title": "Gaming Newsletter",
         "desc": "Coverage of the biggest news, results, and standout moments worth following",
         "meta": "In your inbox · Throughout the tournament",
-        "link": "Read the newsletter"
+        "link": "Read the newsletter",
+        "url": ""
       }
     ],
     "pill": "From the venue"
