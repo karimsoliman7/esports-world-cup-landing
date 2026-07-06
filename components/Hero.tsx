@@ -72,7 +72,7 @@ export default function Hero({
               {dict.cta}
             </span>
             <Image
-              src="/figma/qr.png"
+              src="/qr-download.svg"
               alt="QR"
               width={64}
               height={64}
