@@ -35,7 +35,7 @@ export default function Hero({
           transition={{ delay: 0.9, type: "spring", stiffness: 200, damping: 14 }}
           className="absolute start-1 top-[58%] md:start-8"
         >
-          <Sticker emoji="🔥" rotate={-3} bob />
+          <Sticker emoji="🎮" rotate={-3} bob />
         </motion.div>
 
         <motion.h1
