@@ -57,31 +57,35 @@ export default function TournamentCards({
                   }`}
                 >
                   <div className="flex w-full items-center justify-between gap-3">
-                    <h3 className="type-card-title">{t[locale]}</h3>
-                    <img
-                      src={t.logo}
-                      alt=""
-                      className="h-10 w-auto max-w-20 shrink-0 object-contain md:h-12"
-                    />
+                    <h3 className="text-[22px] font-black uppercase leading-none">
+                      {t[locale]}
+                    </h3>
+                    <div className="flex size-16 shrink-0 items-center justify-center">
+                      <img
+                        src={t.logo}
+                        alt=""
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
                   </div>
 
                   <div className="h-px w-full bg-white/20" />
 
-                  <div className="mt-auto flex w-full items-center justify-end pt-4">
+                  <div className="mt-auto flex w-full items-center justify-end">
                     <span
-                      className={`rounded-s-lg px-3 py-2 text-xs font-medium leading-4 ${
+                      className={`rounded-lg px-3 py-2 text-xs font-medium leading-4 ${
                         live ? "bg-white text-black" : "bg-black text-white"
                       }`}
                     >
                       {formatDateRange(t, locale)}
                     </span>
                     <span
-                      className={`flex h-8 items-center justify-center rounded-e-lg px-2 ${
+                      className={`flex items-center justify-center rounded-lg px-2 py-1 ${
                         live ? "bg-black" : "bg-white"
                       }`}
                     >
                       {live ? (
-                        <span className="inline-block size-3 animate-live-pulse rounded-full bg-orange" />
+                        <span className="m-1.5 inline-block size-3 animate-live-pulse rounded-full bg-orange" />
                       ) : (
                         <ClockIcon />
                       )}
@@ -102,7 +106,7 @@ function ClockIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="size-5 text-black"
+      className="size-6 text-black"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
