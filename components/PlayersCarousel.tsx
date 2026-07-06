@@ -29,7 +29,7 @@ export default function PlayersCarousel({
   };
 
   return (
-    <section id="players" className="relative bg-orange py-24 md:py-32">
+    <section id="players" className="relative bg-ink py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <SectionHeading
           title={dict.title}
@@ -48,7 +48,7 @@ export default function PlayersCarousel({
             {players.map((p) => (
               <article
                 key={p.id}
-                className={`group relative aspect-[3/4] w-64 shrink-0 snap-start overflow-hidden rounded-3xl bg-gradient-to-b text-white ${p.gradient} border border-black/10 shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-transform duration-500 hover:-translate-y-2 md:w-80`}
+                className={`group relative aspect-[3/4] w-64 shrink-0 snap-start overflow-hidden rounded-3xl bg-gradient-to-b text-white ${p.gradient} border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-2 md:w-80`}
               >
                 {/* ghosted monogram in place of the player photo (assets TBD) */}
                 <span
