@@ -20,16 +20,20 @@ export default function Footer({
           {dict.closingTitle}
         </h2>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <StoreBadge
-            top={dict.appStore}
-            name={dict.appStoreName}
-            icon={<AppleIcon />}
-          />
-          <StoreBadge
-            top={dict.googlePlay}
-            name={dict.googlePlayName}
-            icon={<PlayStoreIcon />}
-          />
+          <a href="#" className="transition-opacity hover:opacity-80">
+            <img
+              src="/badges/app-store.svg"
+              alt={`${dict.appStore} ${dict.appStoreName}`}
+              className="h-12 w-auto"
+            />
+          </a>
+          <a href="#" className="transition-opacity hover:opacity-80">
+            <img
+              src="/badges/google-play.svg"
+              alt={`${dict.googlePlay} ${dict.googlePlayName}`}
+              className="h-12 w-auto"
+            />
+          </a>
         </div>
       </Reveal>
 
@@ -76,31 +80,6 @@ export default function Footer({
   );
 }
 
-function StoreBadge({
-  top,
-  name,
-  icon,
-}: {
-  top: string;
-  name: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <a
-      href="#"
-      className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 backdrop-blur transition-all hover:border-white/40 hover:bg-white/10"
-    >
-      <span className="[&>svg]:size-7">{icon}</span>
-      <span className="text-start leading-tight">
-        <span className="block text-[11px] text-white/60">{top}</span>
-        <span className="block text-lg font-bold" dir="ltr">
-          {name}
-        </span>
-      </span>
-    </a>
-  );
-}
-
 function SocialLink({
   href,
   label,
@@ -131,20 +110,6 @@ function FacebookIcon() {
   );
 }
 
-function AppleIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-    </svg>
-  );
-}
-function PlayStoreIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M3.61 1.81 13.79 12 3.61 22.19c-.38-.2-.61-.6-.61-1.09V2.9c0-.49.23-.89.61-1.09zM14.85 13.06l2.44 2.44-11.6 6.5 9.16-8.94zM20.16 10.81c.79.44.79 1.94 0 2.38l-2.47 1.38-2.65-2.57 2.65-2.57 2.47 1.38zM5.69 2 17.29 8.5l-2.44 2.44L5.69 2z" />
-    </svg>
-  );
-}
 function XIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor">
