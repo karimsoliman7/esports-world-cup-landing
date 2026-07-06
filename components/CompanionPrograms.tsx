@@ -51,7 +51,7 @@ export default function CompanionPrograms({
               </p>
             </div>
 
-            <div className="grid flex-1 gap-6 sm:grid-cols-2">
+            <div className="grid flex-1 grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-6">
               {dict.items.map((item, i) => {
                 const s = cardStyles[i % cardStyles.length];
                 return (
