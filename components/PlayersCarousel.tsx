@@ -66,12 +66,22 @@ export default function PlayersCarousel({
                 />
 
                 <div className="relative flex h-full flex-col justify-between p-6">
-                  <p
-                    className="text-2xl font-black uppercase leading-[1.1] tracking-tight"
-                    style={{ color: p.accent }}
-                  >
-                    {p.team[locale]}
-                  </p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p
+                      className="text-2xl font-black uppercase leading-[1.1] tracking-tight"
+                      style={{ color: p.accent }}
+                    >
+                      {p.team[locale]}
+                    </p>
+                    {/* team logo on a white chip for guaranteed contrast */}
+                    <span className="flex h-11 min-w-11 shrink-0 items-center justify-center rounded-xl bg-white/95 px-2 shadow-sm">
+                      <img
+                        src={p.teamLogo}
+                        alt={p.team[locale]}
+                        className="max-h-7 w-auto max-w-[3.5rem] object-contain"
+                      />
+                    </span>
+                  </div>
                   <div>
                     <h3 className="type-card-title">{p.name[locale]}</h3>
                     <p className="mt-2 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/70 backdrop-blur">

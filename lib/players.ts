@@ -3,14 +3,15 @@ export interface Player {
   name: { en: string; ar: string };
   team: { en: string; ar: string }; // poster headline, in the team color
   game: { en: string; ar: string };
+  teamLogo: string;
   // poster gradient + team accent color
   gradient: string;
   accent: string;
 }
 
 // team palettes
-const FALCONS = { gradient: "from-[#0f6b4f] via-[#221f21] to-[#141214]", accent: "#2ecf8e" };
-const TWISTED = { gradient: "from-[#5b2a8f] via-[#221f21] to-[#141214]", accent: "#a06bff" };
+const FALCONS = { teamLogo: "/teams/falcons.png", gradient: "from-[#0f6b4f] via-[#221f21] to-[#141214]", accent: "#2ecf8e" };
+const TWISTED = { teamLogo: "/teams/twisted.png", gradient: "from-[#5b2a8f] via-[#221f21] to-[#141214]", accent: "#a06bff" };
 
 export const players: Player[] = [
   {
@@ -25,6 +26,7 @@ export const players: Player[] = [
     name: { en: "Faker", ar: "فيكر" },
     team: { en: "T1", ar: "تي وان" },
     game: { en: "League of Legends", ar: "ليق أوف ليجندز" },
+    teamLogo: "/teams/t1.png",
     gradient: "from-[#8f1e2e] via-[#221f21] to-[#141214]",
     accent: "#ff4157",
   },
@@ -33,6 +35,7 @@ export const players: Player[] = [
     name: { en: "AbuMakkah", ar: "أبو مكة" },
     team: { en: "Al Qadsiah", ar: "القادسية" },
     game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    teamLogo: "/teams/qadsiah.png",
     gradient: "from-[#8f6b1e] via-[#221f21] to-[#141214]",
     accent: "#f0b429",
   },
@@ -69,6 +72,7 @@ export const players: Player[] = [
     name: { en: "Magnus", ar: "ماقنوس" },
     team: { en: "Team Liquid", ar: "ليكويد" },
     game: { en: "Chess", ar: "الشطرنج" },
+    teamLogo: "/teams/liquid.png",
     gradient: "from-[#1e3a8f] via-[#221f21] to-[#141214]",
     accent: "#4f7cff",
   },
