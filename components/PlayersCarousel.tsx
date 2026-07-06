@@ -43,7 +43,7 @@ export default function PlayersCarousel({
         <div className="relative">
           <div
             ref={track}
-            className="no-scrollbar flex snap-x snap-proximity gap-5 overflow-x-auto scroll-smooth px-5 [scroll-padding-inline-start:1.25rem] md:px-[max(2rem,calc((100vw-80rem)/2+2rem))] md:[scroll-padding-inline-start:max(2rem,calc((100vw-80rem)/2+2rem))]"
+            className="no-scrollbar -my-12 flex snap-x snap-proximity gap-5 overflow-x-auto scroll-smooth px-5 py-12 [scroll-padding-inline-start:1.25rem] md:px-[max(2rem,calc((100vw-80rem)/2+2rem))] md:[scroll-padding-inline-start:max(2rem,calc((100vw-80rem)/2+2rem))]"
           >
             {players.map((p) => (
               <article
