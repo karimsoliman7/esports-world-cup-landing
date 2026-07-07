@@ -24,7 +24,7 @@ export default function Footer({
         />
         <div className="flex flex-col items-center text-center md:items-end md:text-right">
           <h2 className="type-title text-balance">{dict.closingTitle}</h2>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-end">
+          <div className="mt-10 flex flex-wrap items-center justify-end gap-4">
             <a href="#" className="transition-opacity hover:opacity-80">
               <img
                 src="/badges/app-store.svg"
