@@ -29,7 +29,7 @@ export default function CompanionPrograms({
   dict: Dict["programs"];
 }) {
   return (
-    <section id="programs" className="relative bg-ink py-24 md:py-32">
+    <section id="programs" className="relative bg-black py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <div className="flex flex-col gap-10 rounded-[40px] bg-purple p-6 md:rounded-[64px] md:p-10 lg:flex-row lg:items-center lg:gap-16">
