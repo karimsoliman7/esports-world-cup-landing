@@ -20,7 +20,7 @@ export default function Footer({
           src="/footer/devices.png"
           alt=""
           aria-hidden
-          className="w-full max-w-md select-none md:order-first"
+          className="w-full max-w-2xl select-none md:order-first md:w-[58%] md:max-w-none"
         />
         <div className="flex flex-col items-center text-center md:items-end md:text-right">
           <h2 className="type-title text-balance">{dict.closingTitle}</h2>
