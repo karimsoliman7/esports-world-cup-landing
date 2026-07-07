@@ -9,12 +9,8 @@ export default function Footer({
   dict: Dict["footer"];
 }) {
   return (
-    <footer id="download" className="relative overflow-hidden bg-black text-white">
+    <footer id="download" className="relative overflow-hidden bg-purple text-white">
       {/* closing CTA */}
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
-      </div>
-
       <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 py-10 md:flex-row md:items-center md:justify-between md:gap-12 md:py-12">
         <img
           src="/footer/devices.png"
@@ -44,7 +40,7 @@ export default function Footer({
       </Reveal>
 
       {/* footer bar, per the thmanyah.com footer */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 bg-black">
         <div className="mx-auto max-w-7xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
           <div className="flex flex-col items-center gap-10 md:flex-row md:items-center md:justify-between">
             <img
