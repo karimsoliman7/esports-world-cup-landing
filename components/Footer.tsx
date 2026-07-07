@@ -25,14 +25,24 @@ export default function Footer({
         <div className="flex flex-col items-center text-center">
           <h2 className="type-title text-balance">{dict.closingTitle}</h2>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a href="#" className="transition-opacity hover:opacity-80">
+            <a
+              href="https://apps.apple.com/us/app/thmanyah/id6746764325"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-80"
+            >
               <img
                 src="/badges/app-store.svg"
                 alt={`${dict.appStore} ${dict.appStoreName}`}
                 className="h-12 w-auto"
               />
             </a>
-            <a href="#" className="transition-opacity hover:opacity-80">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.thmanyah.shasha"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-80"
+            >
               <img
                 src="/badges/google-play.svg"
                 alt={`${dict.googlePlay} ${dict.googlePlayName}`}
