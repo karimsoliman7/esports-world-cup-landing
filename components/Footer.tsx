@@ -22,9 +22,9 @@ export default function Footer({
           aria-hidden
           className="w-full max-w-xl select-none md:order-first md:w-[48%] md:max-w-none"
         />
-        <div className="flex flex-col items-end text-right">
+        <div className="flex flex-col items-center text-center">
           <h2 className="type-title text-balance">{dict.closingTitle}</h2>
-          <div className="mt-10 flex flex-wrap items-center justify-end gap-4">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a href="#" className="transition-opacity hover:opacity-80">
               <img
                 src="/badges/app-store.svg"

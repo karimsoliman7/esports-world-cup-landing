@@ -39,8 +39,8 @@ export default function Countdown({
   // time === undefined → not mounted yet (SSR); render stable placeholders
   if (time === null) {
     return (
-      <div className="flex items-center gap-3 text-lg font-bold text-orange">
-        <span className="inline-block size-2.5 animate-live-pulse rounded-full bg-orange" />
+      <div className="flex items-center gap-3 text-lg font-bold text-white">
+        <span className="inline-block size-2.5 animate-live-pulse rounded-full bg-white" />
         {dict.live}
       </div>
     );
