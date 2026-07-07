@@ -44,10 +44,16 @@ export default function Footer({
           </a>
         </div>
         <img
+          src="/footer/devices.png"
+          alt=""
+          aria-hidden
+          className="mt-2 w-full max-w-2xl select-none"
+        />
+        <img
           src="/footer/platforms.png"
           alt=""
           aria-hidden
-          className="mt-2 w-full max-w-md select-none"
+          className="w-full max-w-md select-none"
         />
       </Reveal>
 
