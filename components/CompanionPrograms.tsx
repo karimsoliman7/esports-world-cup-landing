@@ -1,7 +1,8 @@
 import type { Dict, Locale } from "@/lib/i18n";
 import Reveal from "./Reveal";
 
-// visual identity per card: [pill classes, thumbnail gradient, icon]
+// visual identity per card. image/showLogo are optional real artwork;
+// when absent the gradient + icon placeholder is used.
 const cardStyles = [
   {
     pill: "bg-orange/15 text-orange",
@@ -9,6 +10,8 @@ const cardStyles = [
     icon: <MicIcon />,
     glow: "group-hover:shadow-[0_0_64px_rgba(228,85,46,0.2)]",
     dash: "bg-orange",
+    image: "/programs/casuals-thumb.jpg",
+    showLogo: null as string | null, // الكاجولز logo is already in the thumbnail
   },
   {
     pill: "bg-purple/20 text-[#a695ff]",
@@ -16,6 +19,8 @@ const cardStyles = [
     icon: <NewsIcon />,
     glow: "group-hover:shadow-[0_0_64px_rgba(96,66,230,0.25)]",
     dash: "bg-purple",
+    image: null as string | null,
+    showLogo: null as string | null,
   },
 ];
 
@@ -64,13 +69,28 @@ export default function CompanionPrograms({
                       : {})}
                     className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-ink text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
                   >
-                    {/* thumbnail area — swap for real artwork when available */}
+                    {/* thumbnail: real artwork if provided, else gradient + icon */}
                     <div
-                      className={`relative flex h-52 items-center justify-center bg-gradient-to-br ${s.thumb} md:h-56`}
+                      className={`relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-br ${s.thumb} md:h-56`}
                     >
-                      <span className="text-white/80 transition-transform duration-500 group-hover:scale-110 [&>svg]:size-16 md:[&>svg]:size-20">
-                        {s.icon}
-                      </span>
+                      {s.image ? (
+                        <img
+                          src={s.image}
+                          alt=""
+                          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <span className="text-white/80 transition-transform duration-500 group-hover:scale-110 [&>svg]:size-16 md:[&>svg]:size-20">
+                          {s.icon}
+                        </span>
+                      )}
+                      {s.showLogo && (
+                        <img
+                          src={s.showLogo}
+                          alt={item.title}
+                          className="absolute bottom-4 end-4 h-12 w-auto drop-shadow-lg md:h-14"
+                        />
+                      )}
                       <span
                         className={`absolute start-6 top-6 rounded-full px-3.5 py-1.5 text-xs font-bold ${s.pill}`}
                       >
