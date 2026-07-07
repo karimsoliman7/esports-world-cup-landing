@@ -16,7 +16,7 @@ export default function WatchLiveBand({
   const ticker = Array.from({ length: 10 }, () => dict.ticker);
 
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-white md:py-32">
+    <section className="relative overflow-hidden bg-purple py-24 text-white md:py-32">
       {/* broadcast ticker — forced LTR so the loop animation reads the same in both locales */}
       <div
         dir="ltr"
