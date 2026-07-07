@@ -26,8 +26,8 @@ export default function Hero({
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`pointer-events-none absolute bottom-0 w-full max-w-[1389px] ${
-          locale === "en" ? "start-0 -scale-x-100" : "end-0"
+        className={`pointer-events-none absolute bottom-0 left-1/2 w-[270%] max-w-none -translate-x-[30%] md:left-auto md:w-full md:max-w-[1389px] md:translate-x-0 ${
+          locale === "en" ? "md:start-0 md:-scale-x-100" : "md:end-0"
         }`}
       >
         {/* purple scribble behind the trophy */}
