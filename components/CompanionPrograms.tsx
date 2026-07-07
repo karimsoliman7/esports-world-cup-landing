@@ -9,7 +9,6 @@ const cardStyles = [
     thumb: "from-orange/30 via-orange/10 to-transparent",
     icon: <MicIcon />,
     glow: "group-hover:shadow-[0_0_64px_rgba(228,85,46,0.2)]",
-    dash: "bg-orange",
     image: "/programs/casuals-thumb.jpg",
     showLogo: null as string | null, // الكاجولز logo is already in the thumbnail
   },
@@ -18,7 +17,6 @@ const cardStyles = [
     thumb: "from-purple/40 via-purple/15 to-transparent",
     icon: <NewsIcon />,
     glow: "group-hover:shadow-[0_0_64px_rgba(96,66,230,0.25)]",
-    dash: "bg-purple",
     image: null as string | null,
     showLogo: null as string | null,
   },
@@ -110,10 +108,6 @@ export default function CompanionPrograms({
                       <h3 className="type-card-title">{item.title}</h3>
                       <p className="mt-3 grow text-pretty leading-relaxed text-white/55">
                         {item.desc}
-                      </p>
-                      <p className="mt-6 flex items-center gap-3 text-sm font-bold">
-                        <span className={`h-0.5 w-8 rounded ${s.dash}`} />
-                        {item.link}
                       </p>
                     </div>
                   </Card>
