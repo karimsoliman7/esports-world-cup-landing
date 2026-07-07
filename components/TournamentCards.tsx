@@ -71,7 +71,17 @@ export default function TournamentCards({
 
                   <div className="h-px w-full bg-white/20" />
 
-                  <div className="mt-auto flex w-full items-center justify-start gap-2">
+                  {/* dir-locked so the chips read the same in both languages:
+                      pinned to the right, date on the left, icon on the right */}
+                  <div dir="ltr" className="mt-auto flex w-full items-center justify-end gap-2">
+                    <span
+                      dir="auto"
+                      className={`rounded-lg px-3 py-2 text-xs font-medium leading-4 ${
+                        live ? "bg-white text-black" : "bg-black text-white"
+                      }`}
+                    >
+                      {formatDateRange(t, locale)}
+                    </span>
                     <span
                       className={`flex items-center justify-center rounded-lg px-2 py-1 ${
                         live ? "bg-black" : "bg-white"
@@ -83,13 +93,6 @@ export default function TournamentCards({
                         <ClockIcon />
                       )}
                       {status && <span className="sr-only">{dict.status[status]}</span>}
-                    </span>
-                    <span
-                      className={`rounded-lg px-3 py-2 text-xs font-medium leading-4 ${
-                        live ? "bg-white text-black" : "bg-black text-white"
-                      }`}
-                    >
-                      {formatDateRange(t, locale)}
                     </span>
                   </div>
                 </article>
