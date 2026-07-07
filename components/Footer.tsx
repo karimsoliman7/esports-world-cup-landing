@@ -15,42 +15,40 @@ export default function Footer({
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 py-10 md:flex-row md:items-center md:justify-between md:gap-12 md:py-12">
+      <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-10 px-5 py-14 text-center md:py-20">
+        <h2 className="type-title text-balance">{dict.closingTitle}</h2>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://apps.apple.com/us/app/thmanyah/id6746764325"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-80"
+          >
+            <img
+              src="/badges/app-store.svg"
+              alt={`${dict.appStore} ${dict.appStoreName}`}
+              className="h-12 w-auto"
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.thmanyah.shasha"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-80"
+          >
+            <img
+              src="/badges/google-play.svg"
+              alt={`${dict.googlePlay} ${dict.googlePlayName}`}
+              className="h-12 w-auto"
+            />
+          </a>
+        </div>
         <img
-          src="/footer/devices.png"
+          src="/footer/platforms.png"
           alt=""
           aria-hidden
-          className="w-full max-w-xl select-none md:order-first md:w-[48%] md:max-w-none"
+          className="mt-2 w-full max-w-md select-none"
         />
-        <div className="flex flex-col items-center text-center">
-          <h2 className="type-title text-balance">{dict.closingTitle}</h2>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://apps.apple.com/us/app/thmanyah/id6746764325"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-opacity hover:opacity-80"
-            >
-              <img
-                src="/badges/app-store.svg"
-                alt={`${dict.appStore} ${dict.appStoreName}`}
-                className="h-12 w-auto"
-              />
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.thmanyah.shasha"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-opacity hover:opacity-80"
-            >
-              <img
-                src="/badges/google-play.svg"
-                alt={`${dict.googlePlay} ${dict.googlePlayName}`}
-                className="h-12 w-auto"
-              />
-            </a>
-          </div>
-        </div>
       </Reveal>
 
       {/* footer bar, per the thmanyah.com footer */}
