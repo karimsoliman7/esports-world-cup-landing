@@ -66,7 +66,7 @@ export default function PlayersCarousel({
                 />
 
                 <div className="relative flex h-full flex-col justify-between p-6">
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center justify-between gap-3">
                     <p
                       className="text-2xl font-black uppercase leading-[1.1] tracking-tight"
                       style={{ color: p.accent }}
