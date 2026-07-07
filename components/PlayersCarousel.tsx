@@ -29,7 +29,7 @@ export default function PlayersCarousel({
   };
 
   return (
-    <section id="players" className="relative bg-ink py-24 md:py-32">
+    <section id="players" className="relative bg-black py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <SectionHeading
           title={dict.title}
@@ -73,14 +73,12 @@ export default function PlayersCarousel({
                     >
                       {p.team[locale]}
                     </p>
-                    {/* team logo on a white chip for guaranteed contrast */}
-                    <span className="flex h-11 min-w-11 shrink-0 items-center justify-center rounded-xl bg-white/95 px-2 shadow-sm">
-                      <img
-                        src={p.teamLogo}
-                        alt={p.team[locale]}
-                        className="max-h-7 w-auto max-w-[3.5rem] object-contain"
-                      />
-                    </span>
+                    {/* team logo, rendered white via filter (works for any logo color) */}
+                    <img
+                      src={p.teamLogo}
+                      alt={p.team[locale]}
+                      className="max-h-8 w-auto max-w-20 shrink-0 object-contain brightness-0 invert"
+                    />
                   </div>
                   <div>
                     <h3 className="type-card-title">{p.name[locale]}</h3>
