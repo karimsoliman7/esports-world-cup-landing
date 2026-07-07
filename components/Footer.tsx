@@ -17,6 +17,12 @@ export default function Footer({
 
       <Reveal className="mx-auto max-w-4xl px-5 py-24 text-center md:py-36">
         <h2 className="type-title text-balance">{dict.closingTitle}</h2>
+        <img
+          src="/footer/devices.png"
+          alt=""
+          aria-hidden
+          className="mx-auto mt-12 w-full max-w-2xl select-none md:mt-16"
+        />
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a href="#" className="transition-opacity hover:opacity-80">
             <img
