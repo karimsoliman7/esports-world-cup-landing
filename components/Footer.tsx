@@ -31,6 +31,15 @@ export default function Footer({
             className="w-full max-w-sm select-none md:w-[34%] md:max-w-none"
           />
         </div>
+
+        <a
+          href="https://appthmanyah.go.link/fQrWo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-block rounded-full bg-purple px-10 py-4 text-lg font-bold text-white shadow-[0_12px_40px_rgba(86,0,204,0.4)] transition-all hover:scale-[1.03] hover:shadow-[0_16px_56px_rgba(86,0,204,0.55)] active:scale-[0.98]"
+        >
+          {dict.cta}
+        </a>
       </Reveal>
 
       {/* footer bar, per the thmanyah.com footer */}
