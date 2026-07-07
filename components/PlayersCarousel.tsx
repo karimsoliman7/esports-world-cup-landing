@@ -77,7 +77,7 @@ export default function PlayersCarousel({
                     <img
                       src={p.teamLogo}
                       alt={p.team[locale]}
-                      className="max-h-8 w-auto max-w-20 shrink-0 object-contain brightness-0 invert"
+                      className="size-11 shrink-0 object-contain brightness-0 invert md:size-12"
                     />
                   </div>
                   <div>
