@@ -37,7 +37,14 @@ export default function CompanionPrograms({
     <section id="programs" className="relative bg-black py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <div className="flex flex-col gap-10 rounded-[40px] bg-purple p-6 md:rounded-[64px] md:p-10 lg:flex-row lg:items-center lg:gap-16">
+          <div className="relative flex flex-col gap-10 rounded-[40px] bg-purple p-6 md:rounded-[64px] md:p-10 lg:flex-row lg:items-center lg:gap-16">
+            {/* floating 3D crosshair, peeking over the bottom-right corner */}
+            <img
+              src="/programs/crosshair.png"
+              alt=""
+              aria-hidden
+              className="pointer-events-none absolute -bottom-10 right-6 z-10 w-20 rotate-12 animate-bob select-none drop-shadow-[0_16px_32px_rgba(0,0,0,0.35)] md:-bottom-14 md:right-12 md:w-28 lg:w-32"
+            />
             <div className="flex flex-1 flex-col items-start justify-center gap-6 p-2 text-start md:p-6">
               <div className="flex flex-wrap items-center gap-5">
                 <h2 className="type-title text-balance text-white">
