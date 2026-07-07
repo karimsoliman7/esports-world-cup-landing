@@ -15,7 +15,7 @@ export default function Footer({
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-5 py-14 text-center md:py-20">
+      <Reveal className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-5 py-24 text-center md:py-36">
         <h2 className="feat-ss01 text-balance text-2xl font-black leading-tight md:text-4xl">
           {dict.closingTitle}
         </h2>
