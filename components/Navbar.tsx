@@ -95,7 +95,7 @@ export default function Navbar({
           </Link>
           <a
             href="#download"
-            className="hidden rounded-full bg-purple px-5 py-2 text-sm font-bold text-white shadow-[0_4px_20px_rgba(86,0,204,0.3)] transition-all hover:shadow-[0_6px_28px_rgba(86,0,204,0.45)] sm:block"
+            className="hidden rounded-full bg-black px-6 py-2.5 text-base font-bold text-white transition-all hover:bg-black/85 sm:block"
           >
             {dict.download}
           </a>
