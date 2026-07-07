@@ -15,6 +15,7 @@ export default function Navbar({
   dict: Dict["nav"];
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const other = locale === "ar" ? "en" : "ar";
 
@@ -23,6 +24,18 @@ export default function Navbar({
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const hero = document.getElementById("top");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -94,8 +107,12 @@ export default function Navbar({
             {dict.switchLabel}
           </Link>
           <a
-            href="#download"
-            className="hidden rounded-full bg-black px-6 py-2.5 text-base font-bold text-white transition-all hover:bg-black/85 sm:block"
+            href="https://appthmanyah.go.link/fQrWo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`rounded-full bg-black px-6 py-2.5 text-base font-bold text-white transition-all hover:bg-black/85 ${
+              pastHero ? "hidden sm:block" : "hidden"
+            }`}
           >
             {dict.download}
           </a>

@@ -21,15 +21,21 @@ export default function Hero({
       className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(225deg,#eb2100_15%,#ff5112_85%)] pb-24 pt-28 text-white md:pt-32"
     >
       {/* bottom montage — trophy, Arc de Triomphe, skyline */}
-      <motion.img
-        src="/hero/montage.png"
-        alt=""
-        aria-hidden
+      <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="pointer-events-none absolute bottom-0 end-0 w-full max-w-[1389px] select-none"
-      />
+        className={`pointer-events-none absolute bottom-0 w-full max-w-[1389px] ${
+          locale === "en" ? "start-0" : "end-0"
+        }`}
+      >
+        <img
+          src="/hero/montage.png"
+          alt=""
+          aria-hidden
+          className={`block w-full select-none ${locale === "en" ? "-scale-x-100" : ""}`}
+        />
+      </motion.div>
 
       <div className="relative mx-auto w-full max-w-7xl px-5 md:px-8">
         <div className="relative flex max-w-[877px] flex-col items-start gap-8 text-start">
@@ -69,11 +75,20 @@ export default function Hero({
             transition={{ duration: 0.8, delay: 0.45 }}
           >
             <a
-              href="#download"
+              href="https://appthmanyah.go.link/fQrWo"
+              target="_blank"
+              rel="noopener noreferrer"
               dir="ltr"
-              className="flex items-center gap-4 rounded-2xl border border-black/5 bg-purple p-2 ps-5 shadow-[0_12px_40px_rgba(86,0,204,0.35)] transition-all hover:scale-[1.03] hover:shadow-[0_16px_56px_rgba(86,0,204,0.5)] active:scale-[0.98]"
+              className={`flex items-center gap-4 rounded-2xl border border-black/5 bg-purple p-2 shadow-[0_12px_40px_rgba(86,0,204,0.35)] transition-all hover:scale-[1.03] hover:shadow-[0_16px_56px_rgba(86,0,204,0.5)] active:scale-[0.98] ${
+                locale === "ar" ? "flex-row ps-5" : "flex-row-reverse pe-5"
+              }`}
             >
-              <span className="feat-ss01 text-xl font-medium text-white md:text-2xl">
+              <span
+                dir={locale === "ar" ? "rtl" : "ltr"}
+                className={`feat-ss01 block whitespace-pre-line text-xl font-medium leading-tight text-white md:text-2xl ${
+                  locale === "ar" ? "flex-1 text-right" : "text-left"
+                }`}
+              >
                 {dict.cta}
               </span>
               <Image

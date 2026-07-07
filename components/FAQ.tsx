@@ -14,7 +14,7 @@ export default function FAQ({
   locale: Locale;
   dict: Dict["faq"];
 }) {
-  // strict conversation order: item i plays only after item i-1 finished
+  // conversation order: item i plays only after item i-1 has been answered
   const [unlocked, setUnlocked] = useState(0);
 
   return (
@@ -32,7 +32,7 @@ export default function FAQ({
               q={item.q}
               a={item.a}
               canStart={unlocked >= i}
-              onDone={() => setUnlocked((u) => Math.max(u, i + 1))}
+              onAnswered={() => setUnlocked((u) => Math.max(u, i + 1))}
             />
           ))}
         </div>
@@ -42,38 +42,38 @@ export default function FAQ({
 }
 
 // 0 hidden → 1 question sent → 2 typing → 3 answered
+// items play one by one; the next unlocks as soon as this one's answer shows
 function ChatItem({
   q,
   a,
   canStart,
-  onDone,
+  onAnswered,
 }: {
   q: string;
   a: string;
   canStart: boolean;
-  onDone: () => void;
+  onAnswered: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-12% 0px" });
   const [stage, setStage] = useState(0);
   const started = useRef(false);
-  const onDoneRef = useRef(onDone);
-  onDoneRef.current = onDone;
+  const onAnsweredRef = useRef(onAnswered);
+  onAnsweredRef.current = onAnswered;
 
   useEffect(() => {
     if (!inView || !canStart || started.current) return;
     started.current = true;
-    // question → typing → answer, then hand the turn to the next item
-    // once the word-by-word reveal has finished
-    const revealMs = a.split(/\s+/).length * 30 + 400;
     const timers = [
-      setTimeout(() => setStage(1), 100),
-      setTimeout(() => setStage(2), 750),
-      setTimeout(() => setStage(3), 2000),
-      setTimeout(() => onDoneRef.current(), 2000 + revealMs),
+      setTimeout(() => setStage(1), 57),
+      setTimeout(() => setStage(2), 429),
+      setTimeout(() => {
+        setStage(3);
+        onAnsweredRef.current();
+      }, 1143),
     ];
     return () => timers.forEach(clearTimeout);
-  }, [inView, canStart, a]);
+  }, [inView, canStart]);
 
   return (
     <div ref={ref} className="flex min-h-[7rem] flex-col gap-4">
@@ -134,7 +134,7 @@ function AnswerText({ a }: { a: string }) {
   const fade = (delay: number) => ({
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    transition: { duration: 0.18, delay },
+    transition: { duration: 0.103, delay },
   });
 
   return (
@@ -151,14 +151,14 @@ function AnswerText({ a }: { a: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium text-purple underline underline-offset-2 hover:text-purple/70"
-                  {...fade(word++ * 0.03)}
+                  {...fade(word++ * 0.017)}
                 >
                   {link[1]}
                 </motion.a>
               );
             }
             return part.split(" ").map((w, wi) => (
-              <motion.span key={`${li}-${pi}-${wi}`} {...fade(word++ * 0.03)}>
+              <motion.span key={`${li}-${pi}-${wi}`} {...fade(word++ * 0.017)}>
                 {w}{" "}
               </motion.span>
             ));
