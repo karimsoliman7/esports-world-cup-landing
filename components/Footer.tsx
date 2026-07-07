@@ -17,32 +17,6 @@ export default function Footer({
 
       <Reveal className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-5 py-14 text-center md:py-20">
         <h2 className="type-title text-balance">{dict.closingTitle}</h2>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://apps.apple.com/us/app/thmanyah/id6746764325"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-80"
-          >
-            <img
-              src="/badges/app-store.svg"
-              alt={`${dict.appStore} ${dict.appStoreName}`}
-              className="h-12 w-auto"
-            />
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.thmanyah.shasha"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-80"
-          >
-            <img
-              src="/badges/google-play.svg"
-              alt={`${dict.googlePlay} ${dict.googlePlayName}`}
-              className="h-12 w-auto"
-            />
-          </a>
-        </div>
         <div className="mt-2 flex w-full flex-col items-center justify-center gap-10 md:flex-row md:gap-16">
           <img
             src="/footer/devices.png"
