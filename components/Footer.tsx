@@ -9,35 +9,37 @@ export default function Footer({
   dict: Dict["footer"];
 }) {
   return (
-    <footer id="download" className="relative overflow-hidden bg-ink text-white">
+    <footer id="download" className="relative overflow-hidden bg-black text-white">
       {/* closing CTA */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto max-w-4xl px-5 py-24 text-center md:py-36">
-        <h2 className="type-title text-balance">{dict.closingTitle}</h2>
+      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-5 py-24 md:flex-row md:items-center md:justify-between md:gap-12 md:py-36">
         <img
           src="/footer/devices.png"
           alt=""
           aria-hidden
-          className="mx-auto mt-12 w-full max-w-2xl select-none md:mt-16"
+          className="w-full max-w-md select-none md:order-first"
         />
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="#" className="transition-opacity hover:opacity-80">
-            <img
-              src="/badges/app-store.svg"
-              alt={`${dict.appStore} ${dict.appStoreName}`}
-              className="h-12 w-auto"
-            />
-          </a>
-          <a href="#" className="transition-opacity hover:opacity-80">
-            <img
-              src="/badges/google-play.svg"
-              alt={`${dict.googlePlay} ${dict.googlePlayName}`}
-              className="h-12 w-auto"
-            />
-          </a>
+        <div className="flex flex-col items-center text-center md:items-end md:text-right">
+          <h2 className="type-title text-balance">{dict.closingTitle}</h2>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-end">
+            <a href="#" className="transition-opacity hover:opacity-80">
+              <img
+                src="/badges/app-store.svg"
+                alt={`${dict.appStore} ${dict.appStoreName}`}
+                className="h-12 w-auto"
+              />
+            </a>
+            <a href="#" className="transition-opacity hover:opacity-80">
+              <img
+                src="/badges/google-play.svg"
+                alt={`${dict.googlePlay} ${dict.googlePlayName}`}
+                className="h-12 w-auto"
+              />
+            </a>
+          </div>
         </div>
       </Reveal>
 
