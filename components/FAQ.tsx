@@ -67,10 +67,9 @@ function ChatItem({
     const timers = [
       setTimeout(() => setStage(1), 57),
       setTimeout(() => setStage(2), 429),
-      setTimeout(() => {
-        setStage(3);
-        onAnsweredRef.current();
-      }, 1143),
+      setTimeout(() => setStage(3), 1143),
+      // 500ms buffer after the answer shows before the next question starts
+      setTimeout(() => onAnsweredRef.current(), 1643),
     ];
     return () => timers.forEach(clearTimeout);
   }, [inView, canStart]);
