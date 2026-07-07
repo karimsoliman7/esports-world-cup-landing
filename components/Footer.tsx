@@ -15,12 +15,12 @@ export default function Footer({
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-5 py-14 md:flex-row md:items-center md:justify-between md:gap-12 md:py-20">
+      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 py-10 md:flex-row md:items-center md:justify-between md:gap-12 md:py-12">
         <img
           src="/footer/devices.png"
           alt=""
           aria-hidden
-          className="w-full max-w-2xl select-none md:order-first md:w-[58%] md:max-w-none"
+          className="w-full max-w-xl select-none md:order-first md:w-[48%] md:max-w-none"
         />
         <div className="flex flex-col items-end text-right">
           <h2 className="type-title text-balance">{dict.closingTitle}</h2>
