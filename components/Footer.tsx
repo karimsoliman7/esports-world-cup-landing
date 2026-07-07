@@ -15,7 +15,7 @@ export default function Footer({
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-10 px-5 py-14 text-center md:py-20">
+      <Reveal className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-5 py-14 text-center md:py-20">
         <h2 className="type-title text-balance">{dict.closingTitle}</h2>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
@@ -43,18 +43,18 @@ export default function Footer({
             />
           </a>
         </div>
-        <div className="mt-2 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-12">
+        <div className="mt-2 flex w-full flex-col items-center justify-center gap-10 md:flex-row md:gap-16">
           <img
             src="/footer/devices.png"
             alt=""
             aria-hidden
-            className="w-full max-w-md select-none md:w-[58%] md:max-w-none"
+            className="w-full max-w-xl select-none md:w-[62%] md:max-w-none"
           />
           <img
             src="/footer/platforms.png"
             alt=""
             aria-hidden
-            className="w-full max-w-xs select-none md:w-[38%] md:max-w-none"
+            className="w-full max-w-sm select-none md:w-[34%] md:max-w-none"
           />
         </div>
       </Reveal>
