@@ -39,9 +39,11 @@ export default function Footer({
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
           <div className="flex flex-col items-center gap-10 md:flex-row md:items-center md:justify-between">
-            <p className="text-4xl font-black leading-none md:text-5xl">
-              {locale === "ar" ? "ثمانيـــة" : "thmanyah"}
-            </p>
+            <img
+              src={locale === "ar" ? "/figma/wordmark-ar.svg" : "/figma/wordmark-en.svg"}
+              alt={locale === "ar" ? "ثمانية" : "thmanyah"}
+              className="h-8 w-auto md:h-9"
+            />
             <div className="flex items-center gap-6" aria-label={dict.social}>
               <SocialLink href="https://youtube.com/@thmanyah" label="YouTube">
                 <YouTubeIcon />
