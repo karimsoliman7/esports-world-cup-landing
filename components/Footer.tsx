@@ -15,7 +15,7 @@ export default function Footer({
         <div className="absolute bottom-0 start-1/2 h-[60vmax] w-[80vmax] -translate-x-1/2 rounded-full bg-purple/15 blur-[140px] rtl:translate-x-1/2" />
       </div>
 
-      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-5 py-24 md:flex-row md:items-center md:justify-between md:gap-12 md:py-36">
+      <Reveal className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-5 py-14 md:flex-row md:items-center md:justify-between md:gap-12 md:py-20">
         <img
           src="/footer/devices.png"
           alt=""
