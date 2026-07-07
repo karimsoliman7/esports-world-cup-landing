@@ -20,20 +20,31 @@ export default function Hero({
       id="top"
       className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(225deg,#eb2100_15%,#ff5112_85%)] pb-24 pt-28 text-white md:pt-32"
     >
-      {/* bottom montage — trophy, Arc de Triomphe, skyline */}
+      {/* bottom montage — trophy, Arc de Triomphe, skyline; the whole box
+          mirrors for English so the trophy sits on the opposite side */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
         className={`pointer-events-none absolute bottom-0 w-full max-w-[1389px] ${
-          locale === "en" ? "start-0" : "end-0"
+          locale === "en" ? "start-0 -scale-x-100" : "end-0"
         }`}
       >
+        {/* purple scribble behind the trophy */}
+        <motion.img
+          src="/hero/scribble.png"
+          alt=""
+          aria-hidden
+          initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.9, delay: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="absolute bottom-[3%] left-[9%] z-0 w-[34%] max-w-[430px] select-none sm:bottom-[5%] sm:w-[30%]"
+        />
         <img
           src="/hero/montage.png"
           alt=""
           aria-hidden
-          className={`block w-full select-none ${locale === "en" ? "-scale-x-100" : ""}`}
+          className="relative z-10 block w-full select-none"
         />
       </motion.div>
 
