@@ -18,7 +18,7 @@ export default function Hero({
   return (
     <section
       id="top"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(225deg,#eb2100_15%,#ff5112_85%)] pb-24 pt-28 text-white md:pt-32"
+      className="relative flex min-h-svh flex-col justify-start overflow-hidden bg-[linear-gradient(225deg,#eb2100_15%,#ff5112_85%)] pb-24 pt-28 text-white md:justify-center md:pt-32"
     >
       {/* bottom montage — trophy, Arc de Triomphe, skyline; the whole box
           mirrors for English so the trophy sits on the opposite side */}
