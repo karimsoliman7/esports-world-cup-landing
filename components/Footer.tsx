@@ -43,18 +43,20 @@ export default function Footer({
             />
           </a>
         </div>
-        <img
-          src="/footer/devices.png"
-          alt=""
-          aria-hidden
-          className="mt-2 w-full max-w-2xl select-none"
-        />
-        <img
-          src="/footer/platforms.png"
-          alt=""
-          aria-hidden
-          className="w-full max-w-md select-none"
-        />
+        <div className="mt-2 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-12">
+          <img
+            src="/footer/devices.png"
+            alt=""
+            aria-hidden
+            className="w-full max-w-md select-none md:w-[58%] md:max-w-none"
+          />
+          <img
+            src="/footer/platforms.png"
+            alt=""
+            aria-hidden
+            className="w-full max-w-xs select-none md:w-[38%] md:max-w-none"
+          />
+        </div>
       </Reveal>
 
       {/* footer bar, per the thmanyah.com footer */}
