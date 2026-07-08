@@ -11,6 +11,9 @@ const cardStyles = [
     glow: "group-hover:shadow-[0_0_64px_rgba(228,85,46,0.2)]",
     image: "/programs/casuals-thumb.png",
     showLogo: null as string | null, // الكاجولز logo is already in the thumbnail
+    // dominant hot-pink of the thumbnail, composited over black
+    fade: "bg-gradient-to-b from-transparent via-[#2b0816]/60 to-[#2b0816]",
+    bodyTint: "bg-[linear-gradient(to_bottom,#2b0816,rgba(43,8,22,0)_80%)]",
   },
   {
     pill: "bg-purple/20 text-[#a695ff]",
@@ -19,6 +22,8 @@ const cardStyles = [
     glow: "group-hover:shadow-[0_0_64px_rgba(96,66,230,0.25)]",
     image: null as string | null,
     showLogo: null as string | null,
+    fade: "bg-gradient-to-b from-transparent via-[#110c29]/60 to-[#110c29]",
+    bodyTint: "bg-[linear-gradient(to_bottom,#110c29,rgba(17,12,41,0)_80%)]",
   },
 ];
 
@@ -97,7 +102,7 @@ export default function CompanionPrograms({
                         <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
                         <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_bottom,transparent_40%,black_80%)]" />
                         <div className="absolute inset-0 backdrop-blur-[12px] [mask-image:linear-gradient(to_bottom,transparent_70%,black)]" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black" />
+                        <div className={`absolute inset-0 ${s.fade}`} />
                       </div>
                       {s.showLogo && (
                         <img
@@ -113,7 +118,7 @@ export default function CompanionPrograms({
                       </span>
                     </div>
 
-                    <div className="flex grow flex-col p-6 md:p-8">
+                    <div className={`flex grow flex-col p-6 md:p-8 ${s.bodyTint}`}>
                       <p className="type-meta mb-3 text-white/40">{item.meta}</p>
                       <h3 className="type-card-title">{item.title}</h3>
                       <p className="mt-3 grow text-pretty leading-relaxed text-white/55">
