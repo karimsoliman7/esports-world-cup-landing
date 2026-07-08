@@ -72,7 +72,7 @@ export default function CompanionPrograms({
                     {...(item.url
                       ? { href: item.url, target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-ink text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
+                    className={`group flex h-full flex-col overflow-hidden rounded-3xl bg-black text-white shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1.5 ${s.glow}`}
                   >
                     {/* thumbnail: real artwork if provided, else gradient + icon */}
                     <div
@@ -97,7 +97,7 @@ export default function CompanionPrograms({
                         <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
                         <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_bottom,transparent_40%,black_80%)]" />
                         <div className="absolute inset-0 backdrop-blur-[12px] [mask-image:linear-gradient(to_bottom,transparent_70%,black)]" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/40 to-ink" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black" />
                       </div>
                       {s.showLogo && (
                         <img

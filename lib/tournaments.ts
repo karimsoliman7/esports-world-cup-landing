@@ -12,7 +12,7 @@ export interface Tournament {
 export const tournaments: Tournament[] = [
   { key: "apex", en: "Apex Legends", ar: "إيبكس ليجندز", start: "2026-07-07", end: "2026-07-11", logo: "/figma/games/apex.svg", },
   { key: "dota2", en: "Dota 2", ar: "دوتا 2", start: "2026-07-14", end: "2026-07-19", logo: "/figma/games/dota2.svg", },
-  { key: "fc26", en: "FC 26", ar: "FC 26", start: "2026-07-22", end: "2026-07-26", logo: "/figma/games/fc.svg", },
+  { key: "fc26", en: "FC 26", ar: "إي أيه إف سي 26", start: "2026-07-22", end: "2026-07-26", logo: "/figma/games/fc.svg", },
   { key: "overwatch", en: "Overwatch", ar: "أوفرواتش", start: "2026-07-29", end: "2026-08-02", logo: "/figma/games/overwatch.svg", },
   { key: "bo7", en: "Call of Duty: Black Ops 7", ar: "كول أوف دوتي: بلاك أوبس 7", start: "2026-08-05", end: "2026-08-09", logo: "/figma/games/bo7.svg", },
   { key: "chess", en: "Chess", ar: "شطرنج", start: "2026-08-11", end: "2026-08-15", logo: "/figma/games/chess.svg", },
