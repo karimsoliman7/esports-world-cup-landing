@@ -72,6 +72,7 @@ export const players: Player[] = [
     name: { en: "Soka", ar: "سوكا" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "Call of Duty", ar: "كول أوف دوتي" },
+    photo: "/players/soka.png",
     ...FALCONS,
   },
   {
