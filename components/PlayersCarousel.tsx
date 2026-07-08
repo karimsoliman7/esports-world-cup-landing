@@ -1,11 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { players } from "@/lib/players";
 import type { Dict, Locale } from "@/lib/i18n";
 import SectionHeading from "./SectionHeading";
-import Reveal from "./Reveal";
 
+// players section: the cards sit in a single row inside a sticky viewport;
+// vertical page scroll through the tall outer section pans the row
+// horizontally (mirrored in RTL).
 export default function PlayersCarousel({
   locale,
   dict,
@@ -13,42 +16,56 @@ export default function PlayersCarousel({
   locale: Locale;
   dict: Dict["players"];
 }) {
-  const track = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  // "next" advances with the reading direction; native RTL scrolling
-  // means a negative x offset moves forward in Arabic
-  const scroll = (forward: boolean) => {
-    const el = track.current;
-    if (!el) return;
-    const rtl = getComputedStyle(el).direction === "rtl";
-    const amount = Math.min(el.clientWidth * 0.8, 640);
-    el.scrollBy({
-      left: (forward ? 1 : -1) * (rtl ? -1 : 1) * amount,
-      behavior: "smooth",
-    });
-  };
+  // how far the row has to travel so the last card ends up flush with the
+  // viewport edge — measured, since it depends on screen and card widths
+  const [shift, setShift] = useState(0);
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      const viewport = viewportRef.current;
+      if (!track || !viewport) return;
+      setShift(Math.max(0, track.scrollWidth - viewport.clientWidth));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+  // in RTL the row is anchored to the right and the overflow hides past the
+  // left edge, so the pan is mirrored: the row travels +x instead of -x
+  const rtl = locale === "ar";
+  const x = useTransform(scrollYProgress, [0, 1], [0, rtl ? shift : -shift]);
 
   return (
-    <section id="players" className="relative bg-black py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <SectionHeading
-          title={dict.title}
-          subtitle={dict.subtitle}
-          pill={dict.pill}
-          tone="orange"
-        />
-      </div>
+    <section ref={sectionRef} id="players" className="relative h-[300vh] bg-black">
+      <div className="sticky top-0 flex h-svh flex-col justify-center gap-8 overflow-hidden py-6 md:gap-12">
+        <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
+          <SectionHeading
+            title={dict.title}
+            subtitle={dict.subtitle}
+            pill={dict.pill}
+            tone="orange"
+          />
+        </div>
 
-      <Reveal delay={0.15}>
-        <div className="relative">
-          <div
-            ref={track}
-            className="no-scrollbar -my-12 flex snap-x snap-proximity gap-5 overflow-x-auto scroll-smooth px-5 py-12 [scroll-padding-inline-start:1.25rem] md:px-[max(2rem,calc((100vw-80rem)/2+2rem))] md:[scroll-padding-inline-start:max(2rem,calc((100vw-80rem)/2+2rem))]"
+        <div ref={viewportRef} className="w-full">
+          <motion.div
+            ref={trackRef}
+            style={{ x }}
+            className="flex w-max gap-5 px-5 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
           >
             {players.map((p) => (
               <article
                 key={p.id}
-                className={`group relative aspect-[3/4] w-64 shrink-0 snap-start overflow-hidden rounded-3xl bg-gradient-to-b text-white ${p.gradient} border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-2 md:w-80`}
+                className={`group relative aspect-[3/4] w-64 shrink-0 overflow-hidden rounded-3xl bg-gradient-to-b text-white ${p.gradient} border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-2 md:w-80`}
               >
                 {p.photo ? (
                   <>
@@ -105,44 +122,9 @@ export default function PlayersCarousel({
                 </div>
               </article>
             ))}
-          </div>
-
-          <div className="mt-8 flex justify-center gap-3">
-            <button
-              type="button"
-              aria-label={dict.prev}
-              onClick={() => scroll(false)}
-              className="flex size-12 items-center justify-center rounded-full border-2 border-white/40 text-white transition-colors hover:border-white hover:bg-white/10"
-            >
-              <ArrowIcon flipped={locale !== "ar"} />
-            </button>
-            <button
-              type="button"
-              aria-label={dict.next}
-              onClick={() => scroll(true)}
-              className="flex size-12 items-center justify-center rounded-full border-2 border-white/40 text-white transition-colors hover:border-white hover:bg-white/10"
-            >
-              <ArrowIcon flipped={locale === "ar"} />
-            </button>
-          </div>
+          </motion.div>
         </div>
-      </Reveal>
+      </div>
     </section>
-  );
-}
-
-function ArrowIcon({ flipped }: { flipped?: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`size-5 ${flipped ? "rotate-180" : ""}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   formatDateRange,
   tournamentStatus,
@@ -10,11 +9,9 @@ import {
 import type { Dict, Locale } from "@/lib/i18n";
 import Reveal from "./Reveal";
 
-// tournaments section, per the Figma design (node 10-160): orange-red gradient
+// tournaments grid, per the Figma design (node 10-160): orange-red gradient
 // section, white rounded headline banner with a 🏆 sticker, glassy cards
-// with the game logo, a divider, and date + clock chips.
-// The cards sit in a single row inside a sticky viewport; vertical page
-// scroll through the tall outer section pans the row horizontally.
+// with the game logo, a divider, and date + clock chips
 export default function TournamentCards({
   locale,
   dict,
@@ -27,71 +24,35 @@ export default function TournamentCards({
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => setNow(new Date()), []);
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  // how far the row has to travel so the last card ends up flush with the
-  // viewport edge — measured, since it depends on screen and card widths
-  const [shift, setShift] = useState(0);
-  useEffect(() => {
-    const measure = () => {
-      const track = trackRef.current;
-      const viewport = viewportRef.current;
-      if (!track || !viewport) return;
-      setShift(Math.max(0, track.scrollWidth - viewport.clientWidth));
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-  // in RTL the row is anchored to the right and the overflow hides past the
-  // left edge, so the pan is mirrored: the row travels +x instead of -x
-  const rtl = locale === "ar";
-  const x = useTransform(scrollYProgress, [0, 1], [0, rtl ? shift : -shift]);
-
   return (
     <section
-      ref={sectionRef}
       id="tournaments"
-      className="relative h-[300vh] bg-gradient-to-l from-[#eb2100] to-[#ff5112]"
+      className="relative bg-gradient-to-l from-[#eb2100] to-[#ff5112] py-24 md:py-32"
     >
-      <div className="sticky top-0 flex h-svh flex-col justify-center gap-8 overflow-hidden py-6 md:gap-11">
-        <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
-          <Reveal>
-            <div className="relative flex items-center justify-center rounded-[40px] bg-white px-6 py-12 md:min-h-[265px] md:rounded-[64px] md:px-16">
-              <h2 className="type-title max-w-[681px] text-balance text-center text-ink">
-                {dict.title}
-              </h2>
-              <span
-                aria-hidden
-                className="absolute -top-5 end-6 flex size-14 items-center justify-center rounded-full border-[3px] border-black/5 bg-purple text-3xl md:top-1/2 md:end-[9%] md:size-20 md:-translate-y-1/2 md:text-5xl"
-                style={{ transform: "rotate(-15deg)" }}
-              >
-                🏆
-              </span>
-            </div>
-          </Reveal>
-        </div>
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <Reveal>
+          <div className="relative mb-11 flex items-center justify-center rounded-[40px] bg-white px-6 py-12 md:min-h-[265px] md:rounded-[64px] md:px-16">
+            <h2 className="type-title max-w-[681px] text-balance text-center text-ink">
+              {dict.title}
+            </h2>
+            <span
+              aria-hidden
+              className="absolute -top-5 end-6 flex size-14 items-center justify-center rounded-full border-[3px] border-black/5 bg-purple text-3xl md:top-1/2 md:end-[9%] md:size-20 md:-translate-y-1/2 md:text-5xl"
+              style={{ transform: "rotate(-15deg)" }}
+            >
+              🏆
+            </span>
+          </div>
+        </Reveal>
 
-        <div ref={viewportRef} className="w-full">
-          <motion.div
-            ref={trackRef}
-            style={{ x }}
-            className="flex w-max gap-4 px-5 md:gap-6 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
-          >
-            {tournaments.map((t) => {
-              const status = now ? tournamentStatus(t, now) : null;
-              const live = status === "live";
-              return (
+        <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          {tournaments.map((t, i) => {
+            const status = now ? tournamentStatus(t, now) : null;
+            const live = status === "live";
+            return (
+              <Reveal key={t.key} delay={Math.min(i * 0.05, 0.35)} className="h-full">
                 <article
-                  key={t.key}
-                  className={`flex w-[280px] shrink-0 flex-col gap-2 rounded-3xl border border-white/10 bg-white/20 p-4 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/25 md:w-[330px] ${
+                  className={`flex h-full flex-col gap-2 rounded-3xl border border-white/10 bg-white/20 p-4 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/25 ${
                     status === "finished" ? "opacity-60" : ""
                   }`}
                 >
@@ -135,9 +96,9 @@ export default function TournamentCards({
                     </span>
                   </div>
                 </article>
-              );
-            })}
-          </motion.div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
