@@ -48,6 +48,7 @@ export const players: Player[] = [
     name: { en: "Msdossary", ar: "مساعد الدوسري" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    photo: "/players/msdossary.png",
     ...FALCONS,
   },
   {
