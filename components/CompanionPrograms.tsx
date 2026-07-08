@@ -9,7 +9,7 @@ const cardStyles = [
     thumb: "from-orange/30 via-orange/10 to-transparent",
     icon: <MicIcon />,
     glow: "group-hover:shadow-[0_0_64px_rgba(228,85,46,0.2)]",
-    image: "/programs/casuals-thumb.jpg",
+    image: "/programs/casuals-thumb.png",
     showLogo: null as string | null, // الكاجولز logo is already in the thumbnail
   },
   {
