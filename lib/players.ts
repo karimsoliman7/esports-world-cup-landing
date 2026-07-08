@@ -28,6 +28,7 @@ export const players: Player[] = [
     name: { en: "Faker", ar: "فيكر" },
     team: { en: "T1", ar: "تي وان" },
     game: { en: "League of Legends", ar: "ليق أوف ليجندز" },
+    photo: "/players/faker.png",
     teamLogo: "/teams/t1.svg",
     gradient: "from-[#8f1e2e] via-[#221f21] to-[#141214]",
     accent: "#ff4157",
