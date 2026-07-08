@@ -14,7 +14,6 @@ export const tournaments: Tournament[] = [
   { key: "dota2", en: "Dota 2", ar: "دوتا 2", start: "2026-07-14", end: "2026-07-19", logo: "/figma/games/dota2.svg", },
   { key: "fc26", en: "FC 26", ar: "FC 26", start: "2026-07-22", end: "2026-07-26", logo: "/figma/games/fc.svg", },
   { key: "overwatch", en: "Overwatch", ar: "أوفرواتش", start: "2026-07-29", end: "2026-08-02", logo: "/figma/games/overwatch.svg", },
-  { key: "warzone", en: "Call of Duty: Warzone", ar: "كول أوف دوتي: وور زون", start: "2026-07-30", end: "2026-08-02", logo: "/figma/games/warzone.svg", },
   { key: "bo7", en: "Call of Duty: Black Ops 7", ar: "كول أوف دوتي: بلاك أوبس 7", start: "2026-08-05", end: "2026-08-09", logo: "/figma/games/bo7.svg", },
   { key: "chess", en: "Chess", ar: "شطرنج", start: "2026-08-11", end: "2026-08-15", logo: "/figma/games/chess.svg", },
   { key: "rocket", en: "Rocket League", ar: "روكيت ليق", start: "2026-08-12", end: "2026-08-16", logo: "/figma/games/rocket.svg", },

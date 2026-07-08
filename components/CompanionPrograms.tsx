@@ -76,7 +76,7 @@ export default function CompanionPrograms({
                   >
                     {/* thumbnail: real artwork if provided, else gradient + icon */}
                     <div
-                      className={`relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-br ${s.thumb} md:h-56`}
+                      className={`relative flex h-60 items-center justify-center overflow-hidden bg-gradient-to-br ${s.thumb} md:h-64`}
                     >
                       {s.image ? (
                         <img
@@ -89,6 +89,16 @@ export default function CompanionPrograms({
                           {s.icon}
                         </span>
                       )}
+                      {/* progressive blur + fade so the artwork melts into the ink card body */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+                      >
+                        <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
+                        <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_bottom,transparent_40%,black_80%)]" />
+                        <div className="absolute inset-0 backdrop-blur-[12px] [mask-image:linear-gradient(to_bottom,transparent_70%,black)]" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/40 to-ink" />
+                      </div>
                       {s.showLogo && (
                         <img
                           src={s.showLogo}
