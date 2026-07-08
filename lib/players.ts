@@ -63,6 +63,7 @@ export const players: Player[] = [
     name: { en: "Quartz", ar: "كوارتز" },
     team: { en: "Twisted Minds", ar: "تويستد مايندز" },
     game: { en: "Overwatch", ar: "أوفرواتش" },
+    photo: "/players/quartz.png",
     ...TWISTED,
   },
   {
