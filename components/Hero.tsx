@@ -26,7 +26,7 @@ export default function Hero({
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`pointer-events-none absolute bottom-0 left-1/2 w-[270%] max-w-none -translate-x-[30%] md:w-full md:max-w-[1389px] md:translate-x-0 ${
+        className={`pointer-events-none absolute -bottom-16 left-1/2 w-[270%] max-w-none -translate-x-[30%] md:bottom-0 md:w-full md:max-w-[1389px] md:translate-x-0 ${
           locale === "en"
             ? "md:left-auto md:right-0 md:-scale-x-100"
             : "md:left-0 md:right-auto"
@@ -66,7 +66,7 @@ export default function Hero({
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="feat-salt text-balance text-5xl font-black leading-[1.15] md:text-7xl lg:text-[92px]"
+              className="feat-salt text-balance text-4xl font-black leading-[1.15] md:text-7xl lg:text-[92px]"
             >
               {dict.title}
             </motion.h1>
