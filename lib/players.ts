@@ -38,6 +38,7 @@ export const players: Player[] = [
     name: { en: "AbuMakkah", ar: "أبو مكة" },
     team: { en: "Al Qadsiah", ar: "القادسية" },
     game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    photo: "/players/abumakkah.png",
     teamLogo: "/teams/qadsiah.svg",
     gradient: "from-[#8f6b1e] via-[#221f21] to-[#141214]",
     accent: "#f0b429",
@@ -54,6 +55,7 @@ export const players: Player[] = [
     name: { en: "Vejrgang", ar: "فيرقانق" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "EA Sports FC", ar: "إي أيه إف سي" },
+    photo: "/players/vejrgang.png",
     ...FALCONS,
   },
   {
