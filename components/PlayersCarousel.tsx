@@ -50,13 +50,29 @@ export default function PlayersCarousel({
                 key={p.id}
                 className={`group relative aspect-[3/4] w-64 shrink-0 snap-start overflow-hidden rounded-3xl bg-gradient-to-b text-white ${p.gradient} border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-2 md:w-80`}
               >
-                {/* ghosted monogram in place of the player photo (assets TBD) */}
-                <span
-                  aria-hidden
-                  className="absolute -bottom-8 end-[-4%] select-none text-[11rem] font-black leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-white/[0.1] md:text-[14rem]"
-                >
-                  {p.name.en.charAt(0)}
-                </span>
+                {p.photo ? (
+                  <>
+                    {/* player cutout, anchored to the card bottom */}
+                    <img
+                      src={p.photo}
+                      alt={p.name[locale]}
+                      className="absolute inset-x-0 bottom-0 h-[80%] w-full select-none object-contain object-bottom transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                    {/* legibility fade behind the name/game text */}
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/35 to-transparent"
+                    />
+                  </>
+                ) : (
+                  /* ghosted monogram while the player photo is pending */
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-8 end-[-4%] select-none text-[11rem] font-black leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-white/[0.1] md:text-[14rem]"
+                  >
+                    {p.name.en.charAt(0)}
+                  </span>
+                )}
 
                 {/* jersey color block, per the poster reference */}
                 <span

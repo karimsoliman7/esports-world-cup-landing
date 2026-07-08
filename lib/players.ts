@@ -4,6 +4,7 @@ export interface Player {
   team: { en: string; ar: string }; // poster headline, in the team color
   game: { en: string; ar: string };
   teamLogo: string;
+  photo?: string; // transparent cutout, anchored to the card bottom
   // poster gradient + team accent color
   gradient: string;
   accent: string;
@@ -19,6 +20,7 @@ export const players: Player[] = [
     name: { en: "ImperialHal", ar: "إمبريال" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "Apex Legends", ar: "إيبكس ليجندز" },
+    photo: "/players/imperialhal.png",
     ...FALCONS,
   },
   {
