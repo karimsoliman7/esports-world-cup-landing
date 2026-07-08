@@ -80,6 +80,7 @@ export const players: Player[] = [
     name: { en: "Magnus", ar: "ماقنوس" },
     team: { en: "Team Liquid", ar: "ليكويد" },
     game: { en: "Chess", ar: "الشطرنج" },
+    photo: "/players/magnus.png",
     teamLogo: "/teams/liquid.svg",
     gradient: "from-[#1e3a8f] via-[#221f21] to-[#141214]",
     accent: "#4f7cff",
@@ -89,6 +90,7 @@ export const players: Player[] = [
     name: { en: "Nwpo", ar: "نوبو" },
     team: { en: "Twisted Minds", ar: "تويستد مايندز" },
     game: { en: "Rocket League", ar: "روكيت ليق" },
+    photo: "/players/nwpo.png",
     ...TWISTED,
   },
   {
@@ -96,6 +98,7 @@ export const players: Player[] = [
     name: { en: "NiKo", ar: "نيكو" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "Counter-Strike 2", ar: "كاونتر سترايك 2" },
+    photo: "/players/niko.png",
     ...FALCONS,
   },
   {
@@ -103,6 +106,7 @@ export const players: Player[] = [
     name: { en: "Peterbot", ar: "بيتربوت" },
     team: { en: "Team Falcons", ar: "فالكونز" },
     game: { en: "Fortnite", ar: "فورتنايت" },
+    photo: "/players/peterbot.png",
     ...FALCONS,
   },
 ];
